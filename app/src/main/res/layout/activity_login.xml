@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentRelative"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_gradient"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/brain_it_on"
+            android:textColor="@color/white_smoke"
+            android:textSize="28sp"
+            android:fontFamily="@font/fredoka_one" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guess_the_logical_riddle"
+            android:fontFamily="@font/proxima_nova"
+            android:textColor="@color/white_smoke" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/input_username_to_continue"
+                    android:fontFamily="@font/proxima_nova"
+                    android:textColor="@color/white" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/username"
+                    android:textColorHint="@color/white_smoke"
+                    app:boxStrokeColor="@color/white_smoke"
+                    app:hintTextColor="@color/white_smoke"
+                    app:startIconDrawable="@drawable/ic_person"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:startIconTint="@color/white_smoke">
+
+                    <EditText
+                        android:id="@+id/editTextUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="username"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/white_smoke"
+                        android:fontFamily="@font/proxima_nova"
+                        tools:ignore="LabelFor" />
+
+                    <Button
+                        android:id="@+id/btn_continue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white_smoke"
+                        android:elevation="5dp"
+                        android:stateListAnimator="@null"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="@string/continues"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:translationZ="2dp"
+                        app:icon="@drawable/ic_next"
+                        app:iconGravity="end"
+                        app:iconTint="@color/black" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"
+                        android:progressTint="@color/white_smoke"
+                        android:visibility="gone" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

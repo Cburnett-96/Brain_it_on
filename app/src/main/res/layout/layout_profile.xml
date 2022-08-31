@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutProfile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/background_gradient"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/profile"
+            android:textColor="@color/white_smoke"
+            android:textSize="28sp"
+            android:fontFamily="@font/fredoka_one" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:id="@+id/linear_Profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="20dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fitsSystemWindows="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:elevation="6dp"
+                            android:orientation="horizontal"
+                            android:padding="20dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fitsSystemWindows="true">
+
+                                <ImageView
+                                    android:id="@+id/imageViewAvatar"
+                                    android:layout_width="120dp"
+                                    android:layout_height="120dp"
+                                    android:background="@drawable/background_flare1"
+                                    android:padding="15dp"
+                                    app:srcCompat="@raw/profile" />
+
+                                <Button
+                                    android:id="@+id/buttonEditAvatar"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignEnd="@id/imageViewAvatar"
+                                    android:background="@drawable/ic_edit"
+                                    app:backgroundTint="@color/white_smoke" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/tvUsername"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/username"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/white_smoke"
+                                    android:textColorHint="@android:color/darker_gray"
+                                    android:textSize="25sp"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/editTextUsername"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/username"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/white_smoke"
+                                    android:textColorHint="@android:color/darker_gray"
+                                    android:textSize="25sp"
+                                    android:textStyle="bold"
+                                    android:visibility="gone" />
+
+                                <Button
+                                    android:id="@+id/buttonEditUsername"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignEnd="@id/tvUsername"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_edit"
+                                    app:backgroundTint="@color/white_smoke" />
+
+                                <Button
+                                    android:id="@+id/buttonSaveUsername"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_alignEnd="@id/editTextUsername"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_check"
+                                    android:visibility="gone"
+                                    app:backgroundTint="@color/white_smoke" />
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="100dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/rounded_card1"
+                            android:orientation="vertical"
+                            android:elevation="5dp"
+                            android:padding="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="20dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/current_stage"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvStage"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:hint="@string/sharp"
+                                    android:paddingStart="0dp"
+                                    android:paddingEnd="10dp"
+                                    android:textAlignment="viewEnd"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/goldenrod"
+                                    android:textColorHint="@android:color/darker_gray"
+                                    android:textSize="18sp"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="20dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/total_question_answered"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvTotalQuestion"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:hint="@string/sharp"
+                                    android:paddingStart="0dp"
+                                    android:paddingEnd="10dp"
+                                    android:textAlignment="viewEnd"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/goldenrod"
+                                    android:textColorHint="@android:color/darker_gray"
+                                    android:textSize="18sp"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="3dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@color/gray" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="20dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/current_coins"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvCoins"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:hint="@string/sharp"
+                                    android:paddingStart="0dp"
+                                    android:paddingEnd="10dp"
+                                    android:textAlignment="viewEnd"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/goldenrod"
+                                    android:textColorHint="@android:color/darker_gray"
+                                    android:textSize="18sp"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="20dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/total_earned_coins"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvTotalCoins"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:hint="@string/sharp"
+                                    android:paddingStart="0dp"
+                                    android:paddingEnd="10dp"
+                                    android:textAlignment="viewEnd"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/goldenrod"
+                                    android:textColorHint="@android:color/darker_gray"
+                                    android:textSize="18sp"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

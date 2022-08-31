@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tab_profile"
+        android:icon="@drawable/ic_profile"
+        android:fontFamily="@font/proxima_nova"
+        android:title="@string/profile" />
+    <item
+        android:id="@+id/tab_rank"
+        android:icon="@drawable/rank"
+        android:fontFamily="@font/proxima_nova"
+        android:title="@string/ranking" />
+    <item
+        android:id="@+id/tab_play"
+        android:icon="@drawable/ic_play"
+        android:fontFamily="@font/proxima_nova"
+        android:title="@string/play" />
+    <item
+        android:id="@+id/tab_shop"
+        android:icon="@drawable/shop"
+        android:fontFamily="@font/proxima_nova"
+        android:title="@string/shop" />
+    <item
+        android:id="@+id/tab_setting"
+        android:icon="@drawable/ic_setting"
+        android:fontFamily="@font/proxima_nova"
+        android:title="@string/setting" />
+</menu>

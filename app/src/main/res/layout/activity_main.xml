@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:animateLayoutChanges="true"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/loginMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/white_smoke"
+                    android:fontFamily="@font/proxima_nova"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="20dp"
+                        android:src="@drawable/logo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/fredoka_one"
+                        android:text="@string/brain_it_on"
+                        android:textColor="@color/white_smoke"
+                        android:textSize="28sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:text="@string/guess_the_logical_riddle"
+                        android:fontFamily="@font/proxima_nova"
+                        android:textColor="@color/white_smoke" />
+
+                    <Button
+                        android:id="@+id/btn_play"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/button_rounded"
+                        android:elevation="5dp"
+                        android:stateListAnimator="@null"
+                        android:text="@string/play"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:translationZ="2dp"
+                        android:fontFamily="@font/proxima_nova"
+                        app:backgroundTint="@color/white_smoke"
+                        app:icon="@raw/play"
+                        app:iconGravity="end"
+                        app:iconSize="40dp"
+                        app:iconTint="@color/black" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_badges"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="9dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_rounded"
+                            android:elevation="5dp"
+                            android:stateListAnimator="@null"
+                            android:text="@string/badge_collection"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:translationZ="2dp"
+                            android:fontFamily="@font/proxima_nova"
+                            app:backgroundTint="@color/white_smoke"
+                            app:icon="@raw/badge"
+                            app:iconGravity="end"
+                            app:iconSize="40dp"
+                            app:iconTint="@color/black" />
+
+                        <Button
+                            android:id="@+id/btn_wordOfTheDay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="9dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_rounded"
+                            android:elevation="5dp"
+                            android:stateListAnimator="@null"
+                            android:text="@string/word_of_the_day"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:translationZ="2dp"
+                            android:fontFamily="@font/proxima_nova"
+                            app:backgroundTint="@color/white_smoke"
+                            app:icon="@raw/word"
+                            app:iconGravity="end"
+                            app:iconSize="40dp"
+                            app:iconTint="@color/black" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <include layout="@layout/layout_profile" />
+
+    <include layout="@layout/layout_ranking" />
+
+    <include layout="@layout/layout_shop" />
+
+    <include layout="@layout/layout_setting" />
+
+    <include layout="@layout/navigation_bottom" />
+</RelativeLayout>

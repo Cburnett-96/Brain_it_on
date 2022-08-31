@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="50dp"
+    android:paddingEnd="50dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/background_flare"
+            android:fitsSystemWindows="true">
+
+            <ImageView
+                android:id="@+id/avatarTop1"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_margin="20dp"
+                app:srcCompat="@raw/profile" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="55dp"
+                android:layout_alignEnd="@id/avatarTop1"
+                android:layout_alignBottom="@id/avatarTop1"
+                android:layout_centerInParent="true"
+                android:background="@raw/una" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textViewNameTop1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/username"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:scrollHorizontally="true"
+            android:textColor="@color/white_smoke"
+            android:textSize="20sp"
+            android:fontFamily="@font/proxima_nova"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewXpTop1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="#"
+            android:textAllCaps="false"
+            android:textColor="@color/goldenrod"
+            android:fontFamily="@font/proxima_nova"
+            android:textSize="20sp" />
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

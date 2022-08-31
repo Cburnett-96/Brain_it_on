@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutShop"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/background_gradient"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/fredoka_one"
+            android:text="@string/avatar_shop"
+            android:textColor="@color/white_smoke"
+            android:textSize="28sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:text="@string/my_coins"
+                android:textColor="@color/white_smoke"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                app:backgroundTint="@color/white_smoke"
+                app:srcCompat="@raw/coins" />
+
+            <TextView
+                android:id="@+id/textViewCoins"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/proxima_nova"
+                android:hint="#"
+                android:paddingStart="20dp"
+                android:paddingEnd="0dp"
+                android:textAllCaps="false"
+                android:textColor="@color/goldenrod"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:fitsSystemWindows="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/avatar_background"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:paddingStart="5dp"
+                                    android:paddingEnd="5dp"
+                                    android:text="Avatar 1"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:background="@drawable/rounded_card1"
+                                android:elevation="5dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <ImageView
+                                    android:id="@+id/imageAvatar1"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginBottom="30dp"
+                                    android:contentDescription="@string/user_avatar"
+                                    app:srcCompat="@raw/avatar_1" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="145dp"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_buyAvatar1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/button_rounded"
+                                    android:text="5000"
+                                    android:textColor="@color/white_smoke"
+                                    android:textSize="12sp"
+                                    app:backgroundTint="@color/goldenrod"
+                                    app:icon="@raw/coins"
+                                    app:iconPadding="0dp"
+                                    app:iconSize="20dp"
+                                    app:iconTint="@null" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:fitsSystemWindows="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/avatar_background"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:paddingStart="5dp"
+                                    android:paddingEnd="5dp"
+                                    android:text="Avatar 2"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:background="@drawable/rounded_card1"
+                                android:elevation="5dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <ImageView
+                                    android:id="@+id/imageAvatar2"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginBottom="30dp"
+                                    android:contentDescription="@string/user_avatar"
+                                    app:srcCompat="@raw/avatar_2" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="145dp"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_buyAvatar2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/button_rounded"
+                                    android:text="5000"
+                                    android:textColor="@color/white_smoke"
+                                    android:textSize="12sp"
+                                    app:backgroundTint="@color/goldenrod"
+                                    app:icon="@raw/coins"
+                                    app:iconPadding="0dp"
+                                    app:iconSize="20dp"
+                                    app:iconTint="@null" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:fitsSystemWindows="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/avatar_background"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:paddingStart="5dp"
+                                    android:paddingEnd="5dp"
+                                    android:text="Avatar 3"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:background="@drawable/rounded_card1"
+                                android:elevation="5dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <ImageView
+                                    android:id="@+id/imageAvatar3"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginBottom="30dp"
+                                    android:contentDescription="@string/user_avatar"
+                                    app:srcCompat="@raw/avatar_3" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="145dp"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_buyAvatar3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/button_rounded"
+                                    android:text="5000"
+                                    android:textColor="@color/white_smoke"
+                                    android:textSize="12sp"
+                                    app:backgroundTint="@color/goldenrod"
+                                    app:icon="@raw/coins"
+                                    app:iconPadding="0dp"
+                                    app:iconSize="20dp"
+                                    app:iconTint="@null" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:fitsSystemWindows="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/avatar_background"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="Avatar 4"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:background="@drawable/rounded_card1"
+                                android:elevation="5dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <ImageView
+                                    android:id="@+id/imageAvatar4"
+                                    android:layout_width="140dp"
+                                    android:layout_height="140dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginBottom="30dp"
+                                    android:contentDescription="@string/user_avatar"
+                                    app:srcCompat="@raw/avatar_4" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="185dp"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_buyAvatar4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/button_rounded"
+                                    android:text="5000"
+                                    android:textColor="@color/white_smoke"
+                                    android:textSize="12sp"
+                                    app:backgroundTint="@color/goldenrod"
+                                    app:icon="@raw/coins"
+                                    app:iconPadding="0dp"
+                                    app:iconSize="20dp"
+                                    app:iconTint="@null" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:fitsSystemWindows="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/avatar_background"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="Avatar 5"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:background="@drawable/rounded_card1"
+                                android:elevation="5dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <ImageView
+                                    android:id="@+id/imageAvatar5"
+                                    android:layout_width="140dp"
+                                    android:layout_height="140dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginBottom="30dp"
+                                    android:contentDescription="@string/user_avatar"
+                                    app:srcCompat="@raw/avatar_5" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="185dp"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_buyAvatar5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/button_rounded"
+                                    android:text="5000"
+                                    android:textColor="@color/white_smoke"
+                                    android:textSize="12sp"
+                                    app:backgroundTint="@color/goldenrod"
+                                    app:icon="@raw/coins"
+                                    app:iconPadding="0dp"
+                                    app:iconSize="20dp"
+                                    app:iconTint="@null" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:fitsSystemWindows="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/avatar_background"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="Avatar 6"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:background="@drawable/rounded_card1"
+                                android:elevation="5dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <ImageView
+                                    android:id="@+id/imageAvatar6"
+                                    android:layout_width="140dp"
+                                    android:layout_height="140dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginBottom="30dp"
+                                    android:contentDescription="@string/user_avatar"
+                                    app:srcCompat="@raw/avatar_6" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="185dp"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_buyAvatar6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/button_rounded"
+                                    android:text="5000"
+                                    android:textColor="@color/white_smoke"
+                                    android:textSize="12sp"
+                                    app:backgroundTint="@color/goldenrod"
+                                    app:icon="@raw/coins"
+                                    app:iconPadding="0dp"
+                                    app:iconSize="20dp"
+                                    app:iconTint="@null" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:fitsSystemWindows="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/avatar_background"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="Avatar 7"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:background="@drawable/rounded_card1"
+                                android:elevation="5dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <ImageView
+                                    android:id="@+id/imageAvatar7"
+                                    android:layout_width="140dp"
+                                    android:layout_height="140dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginBottom="30dp"
+                                    android:contentDescription="@string/user_avatar"
+                                    app:srcCompat="@raw/avatar_7" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="185dp"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_buyAvatar7"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/button_rounded"
+                                    android:text="5000"
+                                    android:textColor="@color/white_smoke"
+                                    android:textSize="12sp"
+                                    app:backgroundTint="@color/goldenrod"
+                                    app:icon="@raw/coins"
+                                    app:iconPadding="0dp"
+                                    app:iconSize="20dp"
+                                    app:iconTint="@null" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:fitsSystemWindows="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/avatar_background"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="Avatar 8"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:background="@drawable/rounded_card1"
+                                android:elevation="5dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <ImageView
+                                    android:id="@+id/imageAvatar8"
+                                    android:layout_width="140dp"
+                                    android:layout_height="140dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginBottom="30dp"
+                                    android:contentDescription="@string/user_avatar"
+                                    app:srcCompat="@raw/avatar_8" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="185dp"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_buyAvatar8"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/button_rounded"
+                                    android:text="5000"
+                                    android:textColor="@color/white_smoke"
+                                    android:textSize="12sp"
+                                    app:backgroundTint="@color/goldenrod"
+                                    app:icon="@raw/coins"
+                                    app:iconPadding="0dp"
+                                    app:iconSize="20dp"
+                                    app:iconTint="@null" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:fitsSystemWindows="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/avatar_background"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="Avatar 9"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:background="@drawable/rounded_card1"
+                                android:elevation="5dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <ImageView
+                                    android:id="@+id/imageAvatar9"
+                                    android:layout_width="140dp"
+                                    android:layout_height="140dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginBottom="30dp"
+                                    android:contentDescription="@string/user_avatar"
+                                    app:srcCompat="@raw/avatar_9" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="185dp"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_buyAvatar9"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/button_rounded"
+                                    android:text="5000"
+                                    android:textColor="@color/white_smoke"
+                                    android:textSize="12sp"
+                                    app:backgroundTint="@color/goldenrod"
+                                    app:icon="@raw/coins"
+                                    app:iconPadding="0dp"
+                                    app:iconSize="20dp"
+                                    app:iconTint="@null" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:fitsSystemWindows="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/avatar_background"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="Avatar 10"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:background="@drawable/rounded_card1"
+                                android:elevation="5dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <ImageView
+                                    android:id="@+id/imageAvatar10"
+                                    android:layout_width="140dp"
+                                    android:layout_height="140dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginBottom="30dp"
+                                    android:contentDescription="@string/user_avatar"
+                                    app:srcCompat="@raw/avatar_10" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="185dp"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_buyAvatar10"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/button_rounded"
+                                    android:text="5000"
+                                    android:textColor="@color/white_smoke"
+                                    android:textSize="12sp"
+                                    app:backgroundTint="@color/goldenrod"
+                                    app:icon="@raw/coins"
+                                    app:iconPadding="0dp"
+                                    app:iconSize="20dp"
+                                    app:iconTint="@null" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:fitsSystemWindows="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/avatar_background"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="Avatar 11"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:background="@drawable/rounded_card1"
+                                android:elevation="5dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <ImageView
+                                    android:id="@+id/imageAvatar11"
+                                    android:layout_width="140dp"
+                                    android:layout_height="140dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginBottom="30dp"
+                                    android:contentDescription="@string/user_avatar"
+                                    app:srcCompat="@raw/avatar_11" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="185dp"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_buyAvatar11"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/button_rounded"
+                                    android:text="5000"
+                                    android:textColor="@color/white_smoke"
+                                    android:textSize="12sp"
+                                    app:backgroundTint="@color/goldenrod"
+                                    app:icon="@raw/coins"
+                                    app:iconPadding="0dp"
+                                    app:iconSize="20dp"
+                                    app:iconTint="@null" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:fitsSystemWindows="true"
+                            android:gravity="center">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/avatar_background"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="Avatar 12"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="165dp"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/rounded_card1"
+                                    android:elevation="5dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:stateListAnimator="@null"
+                                    android:translationZ="2dp">
+
+                                    <ImageView
+                                        android:id="@+id/imageAvatar12"
+                                        android:layout_width="140dp"
+                                        android:layout_height="140dp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="20dp"
+                                        android:layout_marginBottom="30dp"
+                                        android:contentDescription="@string/user_avatar"
+                                        app:srcCompat="@raw/avatar_12" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="185dp"
+                                android:elevation="6dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:stateListAnimator="@null"
+                                android:translationZ="2dp">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btn_buyAvatar12"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:background="@drawable/button_rounded"
+                                    android:text="5000"
+                                    android:textColor="@color/white_smoke"
+                                    android:textSize="12sp"
+                                    app:backgroundTint="@color/goldenrod"
+                                    app:icon="@raw/coins"
+                                    app:iconPadding="0dp"
+                                    app:iconSize="20dp"
+                                    app:iconTint="@null" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/mediumPurple" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

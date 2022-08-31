@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    tools:context=".BadgesActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="start"
+                android:background="@drawable/ic_back"
+                app:backgroundTint="@color/goldenrod" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/badge_collection"
+                android:textAlignment="center"
+                android:textColor="@color/white_smoke"
+                android:textSize="28sp"
+                android:fontFamily="@font/fredoka_one" />
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageViewProfile"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/background_flare"
+                        android:padding="15dp"
+                        app:srcCompat="@raw/profile" />
+
+                    <TextView
+                        android:id="@+id/textViewUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:hint="@string/username"
+                        android:textAlignment="center"
+                        android:textColor="@color/white_smoke"
+                        android:textSize="28sp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:id="@+id/imageViewBadge1"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_flare1"
+                            android:padding="15dp"
+                            app:srcCompat="@raw/badge_1"
+                            app:tint="@color/dark_slate_gray" />
+
+                        <ImageView
+                            android:id="@+id/imageViewBadge2"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_flare1"
+                            android:padding="15dp"
+                            app:srcCompat="@raw/badge_2"
+                            app:tint="@color/dark_slate_gray" />
+
+                        <ImageView
+                            android:id="@+id/imageViewBadge3"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_flare1"
+                            android:padding="15dp"
+                            app:srcCompat="@raw/badge_3"
+                            app:tint="@color/dark_slate_gray" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:id="@+id/imageViewBadge4"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_flare1"
+                            android:padding="15dp"
+                            app:srcCompat="@raw/badge_4"
+                            app:tint="@color/dark_slate_gray" />
+
+                        <ImageView
+                            android:id="@+id/imageViewBadge5"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_flare1"
+                            android:padding="15dp"
+                            app:srcCompat="@raw/badge_5"
+                            app:tint="@color/dark_slate_gray" />
+
+                        <ImageView
+                            android:id="@+id/imageViewBadge6"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_flare1"
+                            android:padding="15dp"
+                            app:srcCompat="@raw/badge_6"
+                            app:tint="@color/dark_slate_gray" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutSetting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:animateLayoutChanges="true"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/settings"
+            android:textColor="@color/white_smoke"
+            android:textSize="28sp"
+            android:fontFamily="@font/fredoka_one" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_Music"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="@string/background_music"
+                    android:textColor="@color/white_smoke"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchMusic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumb="@drawable/thumb_music"
+                    app:track="@drawable/track" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_Sound"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="70dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="@string/sound_effects"
+                    android:textColor="@color/white_smoke"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchSound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumb="@drawable/thumb_sound"
+                    app:track="@drawable/track" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_aboutUs"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@android:drawable/ic_dialog_info"
+                        app:backgroundTint="@null" />
+
+                    <TextView
+                        android:id="@+id/tv_AboutUs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/about"
+                        android:fontFamily="@font/proxima_nova"
+                        android:textColor="@color/white_smoke"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
