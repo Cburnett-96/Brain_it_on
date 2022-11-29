@@ -39,9 +39,9 @@ public class AvatarActivity extends AppCompatActivity {
 
     HorizontalScrollView horizontalScrollView_Avatar;
     ImageView changeAvatar, avatar1, avatar2, avatar3, avatar4, avatar5, avatar6,
-            avatar7, avatar8, avatar9, avatar10, avatar11, avatar12;
+            avatar7, avatar8;
     boolean isAvatar1, isAvatar2, isAvatar3, isAvatar4, isAvatar5, isAvatar6,
-            isAvatar7, isAvatar8, isAvatar9, isAvatar10, isAvatar11, isAvatar12;
+            isAvatar7, isAvatar8;
     Button btnSave, btnClose;
     TextView avatarName;
 
@@ -53,8 +53,8 @@ public class AvatarActivity extends AppCompatActivity {
         Window window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(this, R.color.indigo));
-        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.mediumPurple));
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.dark_purple));
+        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.dark_purple));
 
         horizontalScrollView_Avatar = findViewById(R.id.scrollView);
         btnSave = findViewById(R.id.saveButton);
@@ -69,10 +69,6 @@ public class AvatarActivity extends AppCompatActivity {
         avatar6 = findViewById(R.id.avatar6);
         avatar7 = findViewById(R.id.avatar7);
         avatar8 = findViewById(R.id.avatar8);
-        avatar9 = findViewById(R.id.avatar9);
-        avatar10 = findViewById(R.id.avatar10);
-        avatar11 = findViewById(R.id.avatar11);
-        avatar12 = findViewById(R.id.avatar12);
         avatarName = findViewById(R.id.avatarName);
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -84,10 +80,6 @@ public class AvatarActivity extends AppCompatActivity {
         isAvatar6 = prefs.getBoolean("isAvatar6", false);
         isAvatar7 = prefs.getBoolean("isAvatar7", false);
         isAvatar8 = prefs.getBoolean("isAvatar8", false);
-        isAvatar9 = prefs.getBoolean("isAvatar9", false);
-        isAvatar10 = prefs.getBoolean("isAvatar10", false);
-        isAvatar11 = prefs.getBoolean("isAvatar11", false);
-        isAvatar12 = prefs.getBoolean("isAvatar12", false);
 
         FirebaseAuth();
 
@@ -228,78 +220,6 @@ public class AvatarActivity extends AppCompatActivity {
             editAvatarName = "avatar_8";
             avatarName.setText("Avatar 8");
             if (isAvatar8) {
-                btnSave.setText("Save");
-                btnSave.setEnabled(true);
-                btnSave.setTextColor(Color.BLACK);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(216,216,216)));
-            }else{
-                btnSave.setEnabled(false);
-                btnSave.setTextColor(Color.WHITE);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
-                btnSave.setText("Purchase first at the avatar shop!");
-            }
-        });
-        avatar9.setOnClickListener(v -> {
-            InputStream imageStream = getResources().openRawResource(R.raw.avatar_9);
-            Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-            changeAvatar.setImageBitmap(bitmap);
-            editAvatarName = "avatar_9";
-            avatarName.setText("Avatar 9");
-            if (isAvatar9) {
-                btnSave.setText("Save");
-                btnSave.setEnabled(true);
-                btnSave.setTextColor(Color.BLACK);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(216,216,216)));
-            }else{
-                btnSave.setEnabled(false);
-                btnSave.setTextColor(Color.WHITE);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
-                btnSave.setText("Purchase first at the avatar shop!");
-            }
-        });
-        avatar10.setOnClickListener(v -> {
-            InputStream imageStream = getResources().openRawResource(R.raw.avatar_10);
-            Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-            changeAvatar.setImageBitmap(bitmap);
-            editAvatarName = "avatar_10";
-            avatarName.setText("Avatar 10");
-            if (isAvatar10) {
-                btnSave.setText("Save");
-                btnSave.setEnabled(true);
-                btnSave.setTextColor(Color.BLACK);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(216,216,216)));
-            }else{
-                btnSave.setEnabled(false);
-                btnSave.setTextColor(Color.WHITE);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
-                btnSave.setText("Purchase first at the avatar shop!");
-            }
-        });
-        avatar11.setOnClickListener(v -> {
-            InputStream imageStream = getResources().openRawResource(R.raw.avatar_11);
-            Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-            changeAvatar.setImageBitmap(bitmap);
-            editAvatarName = "avatar_11";
-            avatarName.setText("Avatar 11");
-            if (isAvatar11) {
-                btnSave.setText("Save");
-                btnSave.setEnabled(true);
-                btnSave.setTextColor(Color.BLACK);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(216,216,216)));
-            }else{
-                btnSave.setEnabled(false);
-                btnSave.setTextColor(Color.WHITE);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
-                btnSave.setText("Purchase first at the avatar shop!");
-            }
-        });
-        avatar12.setOnClickListener(v -> {
-            InputStream imageStream = getResources().openRawResource(R.raw.avatar_12);
-            Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-            changeAvatar.setImageBitmap(bitmap);
-            editAvatarName = "avatar_12";
-            avatarName.setText("Avatar 12");
-            if (isAvatar12) {
                 btnSave.setText("Save");
                 btnSave.setEnabled(true);
                 btnSave.setTextColor(Color.BLACK);

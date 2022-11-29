@@ -9,6 +9,9 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -25,6 +28,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -83,10 +87,8 @@ public class MainActivity extends AppCompatActivity {
     SwitchCompat switchMusic, switchSound;
 
     //Shop
-    boolean isAvatar1, isAvatar2, isAvatar3, isAvatar4, isAvatar5, isAvatar6, isAvatar7, isAvatar8, isAvatar9,
-            isAvatar10, isAvatar11, isAvatar12;
-    MaterialButton btnAvatar1, btnAvatar2, btnAvatar3, btnAvatar4, btnAvatar5, btnAvatar6, btnAvatar7, btnAvatar8, btnAvatar9,
-            btnAvatar10, btnAvatar11, btnAvatar12;
+    boolean isAvatar1, isAvatar2, isAvatar3, isAvatar4, isAvatar5, isAvatar6, isAvatar7, isAvatar8;
+    MaterialButton btnAvatar1, btnAvatar2, btnAvatar3, btnAvatar4, btnAvatar5, btnAvatar6, btnAvatar7, btnAvatar8;
     TextView tvCoins;
 
     //Ranking
@@ -106,8 +108,8 @@ public class MainActivity extends AppCompatActivity {
         Window window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(this, R.color.indigo));
-        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.mediumPurple));
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.dark_purple));
+        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.dark_purple));
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
@@ -539,10 +541,6 @@ public class MainActivity extends AppCompatActivity {
         btnAvatar6 = findViewById(R.id.btn_buyAvatar6);
         btnAvatar7 = findViewById(R.id.btn_buyAvatar7);
         btnAvatar8 = findViewById(R.id.btn_buyAvatar8);
-        btnAvatar9 = findViewById(R.id.btn_buyAvatar9);
-        btnAvatar10 = findViewById(R.id.btn_buyAvatar10);
-        btnAvatar11 = findViewById(R.id.btn_buyAvatar11);
-        btnAvatar12 = findViewById(R.id.btn_buyAvatar12);
 
         isAvatar1 = prefs.getBoolean("isAvatar1", false);
         isAvatar2 = prefs.getBoolean("isAvatar2", false);
@@ -552,20 +550,12 @@ public class MainActivity extends AppCompatActivity {
         isAvatar6 = prefs.getBoolean("isAvatar6", false);
         isAvatar7 = prefs.getBoolean("isAvatar7", false);
         isAvatar8 = prefs.getBoolean("isAvatar8", false);
-        isAvatar9 = prefs.getBoolean("isAvatar9", false);
-        isAvatar10 = prefs.getBoolean("isAvatar10", false);
-        isAvatar11 = prefs.getBoolean("isAvatar11", false);
-        isAvatar12 = prefs.getBoolean("isAvatar12", false);
 
         if(isAvatar1){
             btnAvatar1.setText(R.string.apply);
             btnAvatar1.setIconResource(R.drawable.ic_check);
+            btnAvatar1.setEnabled(false);
             btnAvatar1.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-            btnAvatar1.setOnClickListener(view -> {
-                SoundPoolManager.playSound(1);
-                databaseReference.child("Avatar").setValue("avatar_1");
-                Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-            });
         } else {
             btnAvatar1.setOnClickListener(view -> {
                 if (isAvatar1) {
@@ -573,10 +563,10 @@ public class MainActivity extends AppCompatActivity {
                     databaseReference.child("Avatar").setValue("avatar_1");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (5000 <= coin) {
+                    if (30 <= coin) {
                         SoundPoolManager.playSound(1);
                         uidRefAvatar.child("Avatar1").setValue(true);
-                        databaseReference.child("Coin").setValue(coin - 5000);
+                        databaseReference.child("Coin").setValue(coin - 30);
                         btnAvatar1.setText(R.string.apply);
                         btnAvatar1.setIconResource(R.drawable.ic_check);
                         isAvatar1 = true;
@@ -592,12 +582,8 @@ public class MainActivity extends AppCompatActivity {
         if(isAvatar2){
             btnAvatar2.setText(R.string.apply);
             btnAvatar2.setIconResource(R.drawable.ic_check);
+            btnAvatar2.setEnabled(false);
             btnAvatar2.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-            btnAvatar2.setOnClickListener(view -> {
-                SoundPoolManager.playSound(1);
-                databaseReference.child("Avatar").setValue("avatar_2");
-                Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-            });
         } else {
             btnAvatar2.setOnClickListener(view -> {
                 if (isAvatar2) {
@@ -605,10 +591,10 @@ public class MainActivity extends AppCompatActivity {
                     databaseReference.child("Avatar").setValue("avatar_2");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (5000 <= coin) {
+                    if (30 <= coin) {
                         SoundPoolManager.playSound(1);
                         uidRefAvatar.child("Avatar2").setValue(true);
-                        databaseReference.child("Coin").setValue(coin - 5000);
+                        databaseReference.child("Coin").setValue(coin - 30);
                         btnAvatar2.setText(R.string.apply);
                         btnAvatar2.setIconResource(R.drawable.ic_check);
                         isAvatar2 = true;
@@ -623,12 +609,8 @@ public class MainActivity extends AppCompatActivity {
         if(isAvatar3){
             btnAvatar3.setText(R.string.apply);
             btnAvatar3.setIconResource(R.drawable.ic_check);
+            btnAvatar3.setEnabled(false);
             btnAvatar3.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-            btnAvatar3.setOnClickListener(view -> {
-                SoundPoolManager.playSound(1);
-                databaseReference.child("Avatar").setValue("avatar_3");
-                Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-            });
         } else {
             btnAvatar3.setOnClickListener(view -> {
                 if (isAvatar3) {
@@ -636,10 +618,10 @@ public class MainActivity extends AppCompatActivity {
                     databaseReference.child("Avatar").setValue("avatar_3");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (5000 <= coin) {
+                    if (50 <= coin) {
                         SoundPoolManager.playSound(1);
                         uidRefAvatar.child("Avatar3").setValue(true);
-                        databaseReference.child("Coin").setValue(coin - 5000);
+                        databaseReference.child("Coin").setValue(coin - 50);
                         btnAvatar3.setText(R.string.apply);
                         btnAvatar3.setIconResource(R.drawable.ic_check);
                         isAvatar3 = true;
@@ -654,12 +636,8 @@ public class MainActivity extends AppCompatActivity {
         if(isAvatar4){
             btnAvatar4.setText(R.string.apply);
             btnAvatar4.setIconResource(R.drawable.ic_check);
+            btnAvatar4.setEnabled(false);
             btnAvatar4.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-            btnAvatar4.setOnClickListener(view -> {
-                SoundPoolManager.playSound(1);
-                databaseReference.child("Avatar").setValue("avatar_4");
-                Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-            });
         } else {
             btnAvatar4.setOnClickListener(view -> {
                 if (isAvatar4) {
@@ -667,10 +645,10 @@ public class MainActivity extends AppCompatActivity {
                     databaseReference.child("Avatar").setValue("avatar_4");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (5000 <= coin) {
+                    if (70 <= coin) {
                         SoundPoolManager.playSound(1);
                         uidRefAvatar.child("Avatar4").setValue(true);
-                        databaseReference.child("Coin").setValue(coin - 5000);
+                        databaseReference.child("Coin").setValue(coin - 70);
                         btnAvatar4.setText(R.string.apply);
                         btnAvatar4.setIconResource(R.drawable.ic_check);
                         isAvatar4 = true;
@@ -685,12 +663,8 @@ public class MainActivity extends AppCompatActivity {
         if(isAvatar5){
             btnAvatar5.setText(R.string.apply);
             btnAvatar5.setIconResource(R.drawable.ic_check);
+            btnAvatar5.setEnabled(false);
             btnAvatar5.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-            btnAvatar5.setOnClickListener(view -> {
-                SoundPoolManager.playSound(1);
-                databaseReference.child("Avatar").setValue("avatar_5");
-                Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-            });
         } else {
             btnAvatar5.setOnClickListener(view -> {
                 if (isAvatar5) {
@@ -698,10 +672,10 @@ public class MainActivity extends AppCompatActivity {
                     databaseReference.child("Avatar").setValue("avatar_5");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (5000 <= coin) {
+                    if (100 <= coin) {
                         SoundPoolManager.playSound(1);
                         uidRefAvatar.child("Avatar5").setValue(true);
-                        databaseReference.child("Coin").setValue(coin - 5000);
+                        databaseReference.child("Coin").setValue(coin - 100);
                         btnAvatar5.setText(R.string.apply);
                         btnAvatar5.setIconResource(R.drawable.ic_check);
                         isAvatar5 = true;
@@ -717,11 +691,7 @@ public class MainActivity extends AppCompatActivity {
             btnAvatar6.setText(R.string.apply);
             btnAvatar6.setIconResource(R.drawable.ic_check);
             btnAvatar6.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-            btnAvatar6.setOnClickListener(view -> {
-                SoundPoolManager.playSound(1);
-                databaseReference.child("Avatar").setValue("avatar_6");
-                Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-            });
+            btnAvatar6.setEnabled(false);
         } else {
             btnAvatar6.setOnClickListener(view -> {
                 if (isAvatar6) {
@@ -729,10 +699,10 @@ public class MainActivity extends AppCompatActivity {
                     databaseReference.child("Avatar").setValue("avatar_6");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (5000 <= coin) {
+                    if (120 <= coin) {
                         SoundPoolManager.playSound(1);
                         uidRefAvatar.child("Avatar6").setValue(true);
-                        databaseReference.child("Coin").setValue(coin - 5000);
+                        databaseReference.child("Coin").setValue(coin - 120);
                         btnAvatar6.setText(R.string.apply);
                         btnAvatar6.setIconResource(R.drawable.ic_check);
                         isAvatar6 = true;
@@ -747,12 +717,8 @@ public class MainActivity extends AppCompatActivity {
         if(isAvatar7){
             btnAvatar7.setText(R.string.apply);
             btnAvatar7.setIconResource(R.drawable.ic_check);
+            btnAvatar7.setEnabled(false);
             btnAvatar7.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-            btnAvatar7.setOnClickListener(view -> {
-                SoundPoolManager.playSound(1);
-                databaseReference.child("Avatar").setValue("avatar_7");
-                Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-            });
         } else {
             btnAvatar7.setOnClickListener(view -> {
                 if (isAvatar7) {
@@ -760,10 +726,10 @@ public class MainActivity extends AppCompatActivity {
                     databaseReference.child("Avatar").setValue("avatar_7");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (5000 <= coin) {
+                    if (200 <= coin) {
                         SoundPoolManager.playSound(1);
                         uidRefAvatar.child("Avatar7").setValue(true);
-                        databaseReference.child("Coin").setValue(coin - 5000);
+                        databaseReference.child("Coin").setValue(coin - 200);
                         btnAvatar7.setText(R.string.apply);
                         btnAvatar7.setIconResource(R.drawable.ic_check);
                         isAvatar7 = true;
@@ -778,12 +744,8 @@ public class MainActivity extends AppCompatActivity {
         if(isAvatar8){
             btnAvatar8.setText(R.string.apply);
             btnAvatar8.setIconResource(R.drawable.ic_check);
+            btnAvatar8.setEnabled(false);
             btnAvatar8.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-            btnAvatar8.setOnClickListener(view -> {
-                SoundPoolManager.playSound(1);
-                databaseReference.child("Avatar").setValue("avatar_8");
-                Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-            });
         } else {
             btnAvatar8.setOnClickListener(view -> {
                 if (isAvatar8) {
@@ -791,10 +753,10 @@ public class MainActivity extends AppCompatActivity {
                     databaseReference.child("Avatar").setValue("avatar_8");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (5000 <= coin) {
+                    if (250 <= coin) {
                         SoundPoolManager.playSound(1);
                         uidRefAvatar.child("Avatar8").setValue(true);
-                        databaseReference.child("Coin").setValue(coin - 5000);
+                        databaseReference.child("Coin").setValue(coin - 250);
                         btnAvatar8.setText(R.string.apply);
                         btnAvatar8.setIconResource(R.drawable.ic_check);
                         isAvatar8 = true;
@@ -806,131 +768,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-        if(isAvatar9){
-            btnAvatar9.setText(R.string.apply);
-            btnAvatar9.setIconResource(R.drawable.ic_check);
-            btnAvatar9.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-            btnAvatar9.setOnClickListener(view -> {
-                SoundPoolManager.playSound(1);
-                databaseReference.child("Avatar").setValue("avatar_9");
-                Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-            });
-        } else {
-            btnAvatar9.setOnClickListener(view -> {
-                if (isAvatar9) {
-                    SoundPoolManager.playSound(1);
-                    databaseReference.child("Avatar").setValue("avatar_9");
-                    Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-                } else {
-                    if (5000 <= coin) {
-                        SoundPoolManager.playSound(1);
-                        uidRefAvatar.child("Avatar9").setValue(true);
-                        databaseReference.child("Coin").setValue(coin - 5000);
-                        btnAvatar9.setText(R.string.apply);
-                        btnAvatar9.setIconResource(R.drawable.ic_check);
-                        isAvatar9 = true;
-                        btnAvatar9.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-                    } else {
-                        SoundPoolManager.playSound(0);
-                        Toast.makeText(this, "You don't have enough coins to purchase this!", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
-        if(isAvatar10){
-            btnAvatar10.setText(R.string.apply);
-            btnAvatar10.setIconResource(R.drawable.ic_check);
-            btnAvatar10.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-            btnAvatar10.setOnClickListener(view -> {
-                SoundPoolManager.playSound(1);
-                databaseReference.child("Avatar").setValue("avatar_10");
-                Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-            });
-        } else {
-            btnAvatar10.setOnClickListener(view -> {
-                if (isAvatar10) {
-                    SoundPoolManager.playSound(1);
-                    databaseReference.child("Avatar").setValue("avatar_10");
-                    Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-                } else {
-                    if (5000 <= coin) {
-                        SoundPoolManager.playSound(1);
-                        uidRefAvatar.child("Avatar10").setValue(true);
-                        databaseReference.child("Coin").setValue(coin - 5000);
-                        btnAvatar10.setText(R.string.apply);
-                        btnAvatar10.setIconResource(R.drawable.ic_check);
-                        isAvatar10 = true;
-                        btnAvatar10.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-                    } else {
-                        SoundPoolManager.playSound(0);
-                        Toast.makeText(this, "You don't have enough coins to purchase this!", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
-        if(isAvatar11){
-            btnAvatar11.setText(R.string.apply);
-            btnAvatar11.setIconResource(R.drawable.ic_check);
-            btnAvatar11.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-            btnAvatar11.setOnClickListener(view -> {
-                SoundPoolManager.playSound(1);
-                databaseReference.child("Avatar").setValue("avatar_11");
-                Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-            });
-        } else {
-            btnAvatar11.setOnClickListener(view -> {
-                if (isAvatar11) {
-                    SoundPoolManager.playSound(1);
-                    databaseReference.child("Avatar").setValue("avatar_11");
-                    Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-                } else {
-                    if (5000 <= coin) {
-                        SoundPoolManager.playSound(1);
-                        uidRefAvatar.child("Avatar11").setValue(true);
-                        databaseReference.child("Coin").setValue(coin - 5000);
-                        btnAvatar11.setText(R.string.apply);
-                        btnAvatar11.setIconResource(R.drawable.ic_check);
-                        isAvatar11 = true;
-                        btnAvatar11.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-                    } else {
-                        SoundPoolManager.playSound(0);
-                        Toast.makeText(this, "You don't have enough coins to purchase this!", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
-        if(isAvatar12){
-            btnAvatar12.setText(R.string.apply);
-            btnAvatar12.setIconResource(R.drawable.ic_check);
-            btnAvatar12.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-            btnAvatar12.setOnClickListener(view -> {
-                SoundPoolManager.playSound(1);
-                databaseReference.child("Avatar").setValue("avatar_12");
-                Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-            });
-        } else {
-            btnAvatar12.setOnClickListener(view -> {
-                if (isAvatar12) {
-                    SoundPoolManager.playSound(1);
-                    databaseReference.child("Avatar").setValue("avatar_12");
-                    Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
-                } else {
-                    if (5000 <= coin) {
-                        SoundPoolManager.playSound(1);
-                        uidRefAvatar.child("Avatar12").setValue(true);
-                        databaseReference.child("Coin").setValue(coin - 5000);
-                        btnAvatar12.setText(R.string.apply);
-                        btnAvatar12.setIconResource(R.drawable.ic_check);
-                        isAvatar12 = true;
-                        btnAvatar12.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
-                    } else {
-                        SoundPoolManager.playSound(0);
-                        Toast.makeText(this, "You don't have enough coins to purchase this!", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
-
     }
 
     //User Ranking Layout activity and methods

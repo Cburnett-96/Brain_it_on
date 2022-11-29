@@ -34,7 +34,7 @@ public class WordDayActivity extends AppCompatActivity {
 
     String data1, data2;
     String urlThesauras;
-    int max = 43;
+    int max = 39;
     Map<String, String> getWordMap;
     List<String> word, description;
 
@@ -54,8 +54,8 @@ public class WordDayActivity extends AppCompatActivity {
         Window window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(this, R.color.indigo));
-        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.mediumPurple));
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.dark_purple));
+        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.dark_purple));
 
         title = findViewById(R.id.detail_translate_title);
         desc = findViewById(R.id.detail_translate_desc);

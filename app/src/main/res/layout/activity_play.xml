@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
+    android:background="@color/dark_purple"
     tools:context=".PlayActivity">
 
     <LinearLayout
@@ -46,6 +46,15 @@
                 app:backgroundTint="@null" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/clueButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"
+            android:background="@raw/question_mark"
+            app:backgroundTint="@null" />
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -57,11 +66,15 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@raw/hint" />
+
                 <TextView
                     android:id="@+id/textTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
                     android:fontFamily="@font/proxima_nova"
                     android:hint="@string/current_stage"
                     android:textColor="@color/white"
@@ -81,7 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
-                    android:background="@drawable/rounded_card1"
+                    android:background="@drawable/rounded_card"
                     android:elevation="6dp"
                     android:gravity="center"
                     android:orientation="vertical"
@@ -94,51 +107,51 @@
                         android:fontFamily="@font/proxima_nova"
                         android:hint="@string/descriptions"
                         android:lineSpacingExtra="6dp"
-                        android:textColor="#332FA2"
+                        android:textColor="@color/dark_purple"
                         android:textColorHint="@color/gray"
                         android:textSize="18sp" />
 
                 </LinearLayout>
 
-            <LinearLayout
-                android:layout_margin="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/editText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/text_background"
-                    android:clickable="false"
-                    android:elevation="6dp"
-                    android:focusable="false"
-                    android:fontFamily="@font/fredoka_one"
-                    android:gravity="center"
-                    android:letterSpacing="0.20"
-                    android:padding="10dp"
-                    android:textColor="@color/mediumPurple"
-                    android:textSize="32sp" />
-
-                <Button
-                    android:id="@+id/resetButton"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/ic_reset"
-                    app:backgroundTint="@color/goldenrod" />
-            </LinearLayout>
-
                 <LinearLayout
-                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/text_background"
+                        android:clickable="false"
+                        android:elevation="6dp"
+                        android:focusable="false"
+                        android:fontFamily="@font/fredoka_one"
+                        android:gravity="center"
+                        android:letterSpacing="0.20"
+                        android:padding="10dp"
+                        android:textColor="@color/mediumPurple"
+                        android:textSize="32sp" />
+
+                    <Button
+                        android:id="@+id/resetButton"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="0dp"
+                        android:background="@raw/reset"
+                        app:backgroundTint="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <HorizontalScrollView
@@ -146,8 +159,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:layout_weight="1"
-                        android:scrollbarThumbHorizontal="@color/white_smoke"
-                        android:fitsSystemWindows="true">
+                        android:fitsSystemWindows="true"
+                        android:scrollbarThumbHorizontal="@color/white_smoke">
 
                         <LinearLayout
                             android:id="@+id/layoutParent"
@@ -158,15 +171,14 @@
                         </LinearLayout>
                     </HorizontalScrollView>
 
-                    <Button
-                        android:id="@+id/shuffleButton"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="20dp"
-                        android:background="@drawable/ic_shuffle"
-                        app:backgroundTint="@color/goldenrod" />
                 </LinearLayout>
+
+                <Button
+                    android:id="@+id/shuffleButton"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@raw/shuffle"
+                    app:backgroundTint="@null" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>
@@ -183,13 +195,12 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="#00FFFFFF"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/rounded_card1"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -205,16 +216,28 @@
                     android:textSize="48sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/textViewCoinsEarned"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:fontFamily="@font/proxima_nova"
-                    android:hint="@string/coins_earned"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/gray" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewCoinsEarned"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/proxima_nova"
+                        android:hint="@string/coins_earned"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@raw/coin_bag" />
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/textViewCorrectWord"
@@ -229,18 +252,26 @@
                     android:textColorHint="@color/gray"
                     android:textSize="40sp" />
 
-                <androidx.cardview.widget.CardView
+                <Button
+                    android:id="@+id/btn_Pronoun"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@raw/speak"
+                    android:gravity="end"
+                    app:backgroundTint="@null" />
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:backgroundTint="@color/mediumPurple"
-                    android:elevation="56dp"
-                    android:padding="24sp"
-                    app:cardCornerRadius="10dp">
+                    android:fitsSystemWindows="true">
 
                     <LinearLayout
+                        android:id="@+id/cardSynonym"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/rounded_card1"
                         android:orientation="vertical"
                         android:padding="16sp">
 
@@ -263,14 +294,23 @@
                             android:textColor="@color/white_smoke"
                             android:textSize="14sp" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+
+                    <ImageView
+                        android:id="@+id/imageViewAvatar"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_alignEnd="@id/cardSynonym"
+                        android:layout_alignBottom="@id/cardSynonym"
+                        app:srcCompat="@raw/brain" />
+                </RelativeLayout>
 
                 <Button
                     android:id="@+id/btn_nextStage"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:layout_gravity="end"
-                    android:layout_margin="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/button_rounded"
                     android:elevation="5dp"
                     android:fontFamily="@font/proxima_nova"

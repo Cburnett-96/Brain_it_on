@@ -21,27 +21,70 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/closeButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="start"
-                android:background="@drawable/ic_back"
-                app:backgroundTint="@color/goldenrod" />
-
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                app:srcCompat="@raw/play" />
+                app:srcCompat="@raw/play"
+                app:tint="@color/white_smoke"/>
+
+            <Button
+                android:id="@+id/closeButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_close"
+                app:backgroundTint="@color/goldenrod" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutChoiceMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fredoka_one"
+                android:text="Choice Mode"
+                android:textAlignment="center"
+                android:textColor="@color/white_smoke"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_Riddle"
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:background="@raw/riddle_puzzle"
+                android:fontFamily="@font/proxima_nova"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/btn_Learning"
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:background="@raw/learning"
+                android:fontFamily="@font/proxima_nova"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:backgroundTint="@null" />
+
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/layoutChoiceLetter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:orientation="vertical">
 
             <TextView
@@ -50,32 +93,32 @@
                 android:fontFamily="@font/fredoka_one"
                 android:text="Choice how many letter"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white_smoke"
                 android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btn_FourFiveLetters"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:background="@drawable/button_rounded"
+                android:background="@raw/three_letters"
                 android:fontFamily="@font/proxima_nova"
-                android:text="@string/four_five_letters"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textStyle="bold"
-                app:backgroundTint="@color/goldenrod" />
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btn_SixSevenLetters"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:background="@drawable/button_rounded"
+                android:background="@raw/six_letter"
                 android:fontFamily="@font/proxima_nova"
-                android:text="@string/six_seven_letters"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textStyle="bold"
-                app:backgroundTint="@color/goldenrod" />
+                app:backgroundTint="@null" />
 
             <Button
                 android:id="@+id/btn_EightTenLetters"
@@ -85,8 +128,9 @@
                 android:background="@drawable/button_rounded"
                 android:fontFamily="@font/proxima_nova"
                 android:text="@string/eight_ten_letters"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:backgroundTint="@color/goldenrod" />
 
         </LinearLayout>
@@ -104,7 +148,7 @@
                 android:fontFamily="@font/fredoka_one"
                 android:text="Choice level stage"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white_smoke"
                 android:textSize="20sp" />
 
 
@@ -116,46 +160,22 @@
                 <Button
                     android:id="@+id/btn_Stage1_4_5"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_rounded"
-                    android:elevation="5dp"
-                    android:fontFamily="@font/proxima_nova"
-                    android:stateListAnimator="@null"
-                    android:text="@string/stage_01"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white_smoke"
-                    android:textStyle="bold"
-                    android:translationZ="2dp"
-                    app:backgroundTint="@color/goldenrod"
-                    app:icon="@raw/una"
-                    app:iconGravity="top"
-                    app:iconSize="60dp"
-                    app:iconTint="@null" />
+                    android:background="@raw/stage_one"
+                    app:backgroundTint="@null" />
 
                 <Button
                     android:id="@+id/btn_Stage2_4_5"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_rounded"
-                    android:elevation="5dp"
-                    android:fontFamily="@font/proxima_nova"
-                    android:stateListAnimator="@null"
-                    android:text="@string/stage_02"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white_smoke"
-                    android:textStyle="bold"
-                    android:translationZ="2dp"
-                    app:backgroundTint="@color/goldenrod"
-                    app:icon="@raw/pangalawa"
-                    app:iconGravity="top"
-                    app:iconSize="60dp"
-                    app:iconTint="@null" />
+                    android:background="@raw/stage_two"
+                    app:backgroundTint="@null" />
 
             </LinearLayout>
         </LinearLayout>
@@ -173,7 +193,7 @@
                 android:fontFamily="@font/fredoka_one"
                 android:text="Choice level stage"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white_smoke"
                 android:textSize="20sp" />
 
 
@@ -185,46 +205,22 @@
                 <Button
                     android:id="@+id/btn_Stage1_6_7"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_rounded"
-                    android:elevation="5dp"
-                    android:fontFamily="@font/proxima_nova"
-                    android:stateListAnimator="@null"
-                    android:text="@string/stage_01"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white_smoke"
-                    android:textStyle="bold"
-                    android:translationZ="2dp"
-                    app:backgroundTint="@color/goldenrod"
-                    app:icon="@raw/una"
-                    app:iconGravity="top"
-                    app:iconSize="60dp"
-                    app:iconTint="@null" />
+                    android:background="@raw/stage_one"
+                    app:backgroundTint="@null" />
 
                 <Button
                     android:id="@+id/btn_Stage2_6_7"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_rounded"
-                    android:elevation="5dp"
-                    android:fontFamily="@font/proxima_nova"
-                    android:stateListAnimator="@null"
-                    android:text="@string/stage_02"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white_smoke"
-                    android:textStyle="bold"
-                    android:translationZ="2dp"
-                    app:backgroundTint="@color/goldenrod"
-                    app:icon="@raw/pangalawa"
-                    app:iconGravity="top"
-                    app:iconSize="60dp"
-                    app:iconTint="@null" />
+                    android:background="@raw/stage_two"
+                    app:backgroundTint="@null" />
 
             </LinearLayout>
         </LinearLayout>
@@ -242,7 +238,7 @@
                 android:fontFamily="@font/fredoka_one"
                 android:text="Choice level stage"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white_smoke"
                 android:textSize="20sp" />
 
 
@@ -264,7 +260,7 @@
                     android:stateListAnimator="@null"
                     android:text="@string/stage_01"
                     android:textAllCaps="false"
-                    android:textColor="@color/white_smoke"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     android:translationZ="2dp"
                     app:backgroundTint="@color/goldenrod"
@@ -286,7 +282,7 @@
                     android:stateListAnimator="@null"
                     android:text="@string/stage_02"
                     android:textAllCaps="false"
-                    android:textColor="@color/white_smoke"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     android:translationZ="2dp"
                     app:backgroundTint="@color/goldenrod"

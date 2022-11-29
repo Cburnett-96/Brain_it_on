@@ -9,26 +9,33 @@
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/background_gradient.xml" value="0.149" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/button_rounded.xml" value="0.149" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/home.xml" value="0.149" />
+        <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/ic_back.xml" value="0.152" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/ic_check.xml" value="0.149" />
+        <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/ic_close.xml" value="0.152" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/ic_copy.xml" value="0.152" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/ic_edit.xml" value="0.149" />
+        <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/ic_help.xml" value="0.152" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/ic_nexr.xml" value="0.149" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/ic_person.xml" value="0.149" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/ic_profile.xml" value="0.149" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/ic_reset.xml" value="0.152" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/ic_setting.xml" value="0.149" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/ic_shuffle.xml" value="0.152" />
+        <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/rounded_card.xml" value="0.1475" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/rounded_card1.xml" value="0.149" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/text_background.xml" value="0.152" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/thumb_music.xml" value="0.149" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/thumb_music_off.xml" value="0.149" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/thumb_music_on.xml" value="0.149" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/thumb_sound.xml" value="0.149" />
+        <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/thumb_sound_off.xml" value="0.152" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/thumb_sound_on.xml" value="0.149" />
+        <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/drawable/track.xml" value="0.152" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/font/proxima_nova.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/font/proxima_nova_regular.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/layout/activity_avatar.xml" value="0.2" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/layout/activity_badges.xml" value="0.2" />
+        <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/layout/activity_image_process.xml" value="0.2" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/alber/AndroidStudioProjects/Brainiton/app/src/main/res/layout/activity_play.xml" value="0.2" />

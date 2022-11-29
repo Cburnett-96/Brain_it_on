@@ -11,7 +11,7 @@ android {
         minSdk 23
         targetSdk 32
         versionCode 1
-        versionName '1.8'
+        versionName '1.10'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,6 +26,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        mlModelBinding true
+    }
 }
 
 dependencies {
@@ -38,6 +41,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:21.0.7'
     implementation 'com.google.firebase:firebase-database:20.0.5'
     implementation 'com.github.bumptech.glide:glide:4.13.2'
+    implementation 'org.tensorflow:tensorflow-lite-support:0.1.0'
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

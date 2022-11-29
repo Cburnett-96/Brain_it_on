@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
+    android:background="@color/dark_purple"
     android:orientation="vertical"
     tools:context=".WordDayActivity">
 
@@ -100,8 +100,8 @@
                         android:id="@+id/detail_translate_copy"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/ic_copy"
-                        app:backgroundTint="@color/white_smoke" />
+                        android:background="@raw/copy"
+                        app:backgroundTint="@null" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -114,9 +114,9 @@
                         android:id="@+id/detail_translate_speech"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/ic_speak"
+                        android:background="@raw/speak"
                         android:gravity="end"
-                        app:backgroundTint="@color/white_smoke" />
+                        app:backgroundTint="@null" />
                 </LinearLayout>
             </LinearLayout>
 

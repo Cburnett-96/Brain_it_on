@@ -49,8 +49,8 @@ public class LoginActivity extends AppCompatActivity {
         Window window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(this, R.color.indigo));
-        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.mediumPurple));
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.dark_purple));
+        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.dark_purple));
 
         //initialization
         database = FirebaseDatabase.getInstance();
@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         coin = 0;
         totalCoins = 0;
         avatar = "default";
-        letterStage = "4-5 letters";
+        letterStage = "3-5 letters";
 
         if (currentUser != null) {
             Intent intent = new Intent(this, MainActivity.class);

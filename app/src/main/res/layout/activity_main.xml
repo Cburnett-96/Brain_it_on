@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
+    android:background="@color/dark_purple"
     android:animateLayoutChanges="true"
     tools:context=".MainActivity">
 
@@ -41,49 +41,19 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="300dp"
                         android:layout_gravity="center"
                         android:layout_margin="20dp"
-                        android:src="@drawable/logo" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/fredoka_one"
-                        android:text="@string/brain_it_on"
-                        android:textColor="@color/white_smoke"
-                        android:textSize="28sp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="20dp"
-                        android:text="@string/guess_the_logical_riddle"
-                        android:fontFamily="@font/proxima_nova"
-                        android:textColor="@color/white_smoke" />
+                        android:src="@raw/logo" />
 
                     <Button
                         android:id="@+id/btn_play"
-                        android:layout_width="160dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="180dp"
+                        android:layout_height="70dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/button_rounded"
-                        android:elevation="5dp"
-                        android:stateListAnimator="@null"
-                        android:text="@string/play"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:translationZ="2dp"
-                        android:fontFamily="@font/proxima_nova"
-                        app:backgroundTint="@color/white_smoke"
-                        app:icon="@raw/play"
-                        app:iconGravity="end"
-                        app:iconSize="40dp"
-                        app:iconTint="@color/black" />
+                        android:background="@raw/start_play"
+                        app:backgroundTint="@null" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -93,43 +63,21 @@
 
                         <Button
                             android:id="@+id/btn_badges"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="180dp"
+                            android:layout_height="70dp"
                             android:layout_margin="9dp"
                             android:layout_weight="1"
-                            android:background="@drawable/button_rounded"
-                            android:elevation="5dp"
-                            android:stateListAnimator="@null"
-                            android:text="@string/badge_collection"
-                            android:textAllCaps="false"
-                            android:textColor="@color/black"
-                            android:translationZ="2dp"
-                            android:fontFamily="@font/proxima_nova"
-                            app:backgroundTint="@color/white_smoke"
-                            app:icon="@raw/badge"
-                            app:iconGravity="end"
-                            app:iconSize="40dp"
-                            app:iconTint="@color/black" />
+                            android:background="@raw/badge_collection"
+                            app:backgroundTint="@null" />
 
                         <Button
                             android:id="@+id/btn_wordOfTheDay"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="180dp"
+                            android:layout_height="70dp"
                             android:layout_margin="9dp"
                             android:layout_weight="1"
-                            android:background="@drawable/button_rounded"
-                            android:elevation="5dp"
-                            android:stateListAnimator="@null"
-                            android:text="@string/word_of_the_day"
-                            android:textAllCaps="false"
-                            android:textColor="@color/black"
-                            android:translationZ="2dp"
-                            android:fontFamily="@font/proxima_nova"
-                            app:backgroundTint="@color/white_smoke"
-                            app:icon="@raw/word"
-                            app:iconGravity="end"
-                            app:iconSize="40dp"
-                            app:iconTint="@color/black" />
+                            android:background="@raw/wotd"
+                            app:backgroundTint="@null" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

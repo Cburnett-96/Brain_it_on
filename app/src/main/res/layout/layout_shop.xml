@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@drawable/background_gradient"
+    android:background="@color/dark_purple"
     android:visibility="gone">
 
     <LinearLayout
@@ -13,14 +13,23 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/fredoka_one"
-            android:text="@string/avatar_shop"
-            android:textColor="@color/white_smoke"
-            android:textSize="28sp" />
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/fredoka_one"
+                android:gravity="center"
+                android:text="@string/avatar_shop"
+                android:textColor="@color/white_smoke"
+                android:textSize="28sp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -112,7 +121,7 @@
                                     android:paddingStart="5dp"
                                     android:paddingEnd="5dp"
                                     android:text="Avatar 1"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/white_smoke"
                                     android:textSize="15sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -120,8 +129,6 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:background="@drawable/rounded_card1"
                                 android:elevation="5dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -142,7 +149,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="145dp"
+                                android:layout_marginTop="115dp"
                                 android:elevation="6dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -154,7 +161,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="35dp"
                                     android:background="@drawable/button_rounded"
-                                    android:text="5000"
+                                    android:text="30"
                                     android:textColor="@color/white_smoke"
                                     android:textSize="12sp"
                                     app:backgroundTint="@color/goldenrod"
@@ -190,7 +197,7 @@
                                     android:paddingStart="5dp"
                                     android:paddingEnd="5dp"
                                     android:text="Avatar 2"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/white"
                                     android:textSize="15sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -198,8 +205,6 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:background="@drawable/rounded_card1"
                                 android:elevation="5dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -220,7 +225,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="145dp"
+                                android:layout_marginTop="115dp"
                                 android:elevation="6dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -232,7 +237,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="35dp"
                                     android:background="@drawable/button_rounded"
-                                    android:text="5000"
+                                    android:text="30"
                                     android:textColor="@color/white_smoke"
                                     android:textSize="12sp"
                                     app:backgroundTint="@color/goldenrod"
@@ -268,7 +273,7 @@
                                     android:paddingStart="5dp"
                                     android:paddingEnd="5dp"
                                     android:text="Avatar 3"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/white"
                                     android:textSize="15sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -276,8 +281,6 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:background="@drawable/rounded_card1"
                                 android:elevation="5dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -298,7 +301,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="145dp"
+                                android:layout_marginTop="115dp"
                                 android:elevation="6dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -310,7 +313,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="35dp"
                                     android:background="@drawable/button_rounded"
-                                    android:text="5000"
+                                    android:text="50"
                                     android:textColor="@color/white_smoke"
                                     android:textSize="12sp"
                                     app:backgroundTint="@color/goldenrod"
@@ -355,7 +358,7 @@
                                     android:paddingStart="10dp"
                                     android:paddingEnd="10dp"
                                     android:text="Avatar 4"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -363,8 +366,6 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:background="@drawable/rounded_card1"
                                 android:elevation="5dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -385,7 +386,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="185dp"
+                                android:layout_marginTop="145dp"
                                 android:elevation="6dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -397,7 +398,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="35dp"
                                     android:background="@drawable/button_rounded"
-                                    android:text="5000"
+                                    android:text="70"
                                     android:textColor="@color/white_smoke"
                                     android:textSize="12sp"
                                     app:backgroundTint="@color/goldenrod"
@@ -433,7 +434,7 @@
                                     android:paddingStart="10dp"
                                     android:paddingEnd="10dp"
                                     android:text="Avatar 5"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -441,8 +442,6 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:background="@drawable/rounded_card1"
                                 android:elevation="5dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -463,7 +462,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="185dp"
+                                android:layout_marginTop="145dp"
                                 android:elevation="6dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -475,7 +474,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="35dp"
                                     android:background="@drawable/button_rounded"
-                                    android:text="5000"
+                                    android:text="100"
                                     android:textColor="@color/white_smoke"
                                     android:textSize="12sp"
                                     app:backgroundTint="@color/goldenrod"
@@ -519,7 +518,7 @@
                                     android:paddingStart="10dp"
                                     android:paddingEnd="10dp"
                                     android:text="Avatar 6"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -527,8 +526,6 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:background="@drawable/rounded_card1"
                                 android:elevation="5dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -549,7 +546,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="185dp"
+                                android:layout_marginTop="145dp"
                                 android:elevation="6dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -561,7 +558,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="35dp"
                                     android:background="@drawable/button_rounded"
-                                    android:text="5000"
+                                    android:text="120"
                                     android:textColor="@color/white_smoke"
                                     android:textSize="12sp"
                                     app:backgroundTint="@color/goldenrod"
@@ -597,7 +594,7 @@
                                     android:paddingStart="10dp"
                                     android:paddingEnd="10dp"
                                     android:text="Avatar 7"
-                                    android:textColor="@color/black"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -605,8 +602,6 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:background="@drawable/rounded_card1"
                                 android:elevation="5dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -627,7 +622,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="185dp"
+                                android:layout_marginTop="145dp"
                                 android:elevation="6dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -639,335 +634,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="35dp"
                                     android:background="@drawable/button_rounded"
-                                    android:text="5000"
-                                    android:textColor="@color/white_smoke"
-                                    android:textSize="12sp"
-                                    app:backgroundTint="@color/goldenrod"
-                                    app:icon="@raw/coins"
-                                    app:iconPadding="0dp"
-                                    app:iconSize="20dp"
-                                    app:iconTint="@null" />
-                            </LinearLayout>
-                        </RelativeLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:fitsSystemWindows="true">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:elevation="6dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:stateListAnimator="@null"
-                                android:translationZ="2dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/avatar_background"
-                                    android:fontFamily="@font/proxima_nova"
-                                    android:paddingStart="10dp"
-                                    android:paddingEnd="10dp"
-                                    android:text="Avatar 8"
-                                    android:textColor="@color/black"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:background="@drawable/rounded_card1"
-                                android:elevation="5dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:stateListAnimator="@null"
-                                android:translationZ="2dp">
-
-                                <ImageView
-                                    android:id="@+id/imageAvatar8"
-                                    android:layout_width="140dp"
-                                    android:layout_height="140dp"
-                                    android:layout_gravity="center"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_marginBottom="30dp"
-                                    android:contentDescription="@string/user_avatar"
-                                    app:srcCompat="@raw/avatar_8" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="185dp"
-                                android:elevation="6dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:stateListAnimator="@null"
-                                android:translationZ="2dp">
-
-                                <com.google.android.material.button.MaterialButton
-                                    android:id="@+id/btn_buyAvatar8"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="35dp"
-                                    android:background="@drawable/button_rounded"
-                                    android:text="5000"
-                                    android:textColor="@color/white_smoke"
-                                    android:textSize="12sp"
-                                    app:backgroundTint="@color/goldenrod"
-                                    app:icon="@raw/coins"
-                                    app:iconPadding="0dp"
-                                    app:iconSize="20dp"
-                                    app:iconTint="@null" />
-                            </LinearLayout>
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:fitsSystemWindows="true">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:elevation="6dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:stateListAnimator="@null"
-                                android:translationZ="2dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/avatar_background"
-                                    android:fontFamily="@font/proxima_nova"
-                                    android:paddingStart="10dp"
-                                    android:paddingEnd="10dp"
-                                    android:text="Avatar 9"
-                                    android:textColor="@color/black"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:background="@drawable/rounded_card1"
-                                android:elevation="5dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:stateListAnimator="@null"
-                                android:translationZ="2dp">
-
-                                <ImageView
-                                    android:id="@+id/imageAvatar9"
-                                    android:layout_width="140dp"
-                                    android:layout_height="140dp"
-                                    android:layout_gravity="center"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_marginBottom="30dp"
-                                    android:contentDescription="@string/user_avatar"
-                                    app:srcCompat="@raw/avatar_9" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="185dp"
-                                android:elevation="6dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:stateListAnimator="@null"
-                                android:translationZ="2dp">
-
-                                <com.google.android.material.button.MaterialButton
-                                    android:id="@+id/btn_buyAvatar9"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="35dp"
-                                    android:background="@drawable/button_rounded"
-                                    android:text="5000"
-                                    android:textColor="@color/white_smoke"
-                                    android:textSize="12sp"
-                                    app:backgroundTint="@color/goldenrod"
-                                    app:icon="@raw/coins"
-                                    app:iconPadding="0dp"
-                                    app:iconSize="20dp"
-                                    app:iconTint="@null" />
-                            </LinearLayout>
-                        </RelativeLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:fitsSystemWindows="true">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:elevation="6dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:stateListAnimator="@null"
-                                android:translationZ="2dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/avatar_background"
-                                    android:fontFamily="@font/proxima_nova"
-                                    android:paddingStart="10dp"
-                                    android:paddingEnd="10dp"
-                                    android:text="Avatar 10"
-                                    android:textColor="@color/black"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:background="@drawable/rounded_card1"
-                                android:elevation="5dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:stateListAnimator="@null"
-                                android:translationZ="2dp">
-
-                                <ImageView
-                                    android:id="@+id/imageAvatar10"
-                                    android:layout_width="140dp"
-                                    android:layout_height="140dp"
-                                    android:layout_gravity="center"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_marginBottom="30dp"
-                                    android:contentDescription="@string/user_avatar"
-                                    app:srcCompat="@raw/avatar_10" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="185dp"
-                                android:elevation="6dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:stateListAnimator="@null"
-                                android:translationZ="2dp">
-
-                                <com.google.android.material.button.MaterialButton
-                                    android:id="@+id/btn_buyAvatar10"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="35dp"
-                                    android:background="@drawable/button_rounded"
-                                    android:text="5000"
-                                    android:textColor="@color/white_smoke"
-                                    android:textSize="12sp"
-                                    app:backgroundTint="@color/goldenrod"
-                                    app:icon="@raw/coins"
-                                    app:iconPadding="0dp"
-                                    app:iconSize="20dp"
-                                    app:iconTint="@null" />
-                            </LinearLayout>
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:fitsSystemWindows="true">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:elevation="6dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:stateListAnimator="@null"
-                                android:translationZ="2dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/avatar_background"
-                                    android:fontFamily="@font/proxima_nova"
-                                    android:paddingStart="10dp"
-                                    android:paddingEnd="10dp"
-                                    android:text="Avatar 11"
-                                    android:textColor="@color/black"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:background="@drawable/rounded_card1"
-                                android:elevation="5dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:stateListAnimator="@null"
-                                android:translationZ="2dp">
-
-                                <ImageView
-                                    android:id="@+id/imageAvatar11"
-                                    android:layout_width="140dp"
-                                    android:layout_height="140dp"
-                                    android:layout_gravity="center"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_marginBottom="30dp"
-                                    android:contentDescription="@string/user_avatar"
-                                    app:srcCompat="@raw/avatar_11" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="185dp"
-                                android:elevation="6dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:stateListAnimator="@null"
-                                android:translationZ="2dp">
-
-                                <com.google.android.material.button.MaterialButton
-                                    android:id="@+id/btn_buyAvatar11"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="35dp"
-                                    android:background="@drawable/button_rounded"
-                                    android:text="5000"
+                                    android:text="200"
                                     android:textColor="@color/white_smoke"
                                     android:textSize="12sp"
                                     app:backgroundTint="@color/goldenrod"
@@ -1010,8 +677,8 @@
                                     android:fontFamily="@font/proxima_nova"
                                     android:paddingStart="10dp"
                                     android:paddingEnd="10dp"
-                                    android:text="Avatar 12"
-                                    android:textColor="@color/black"
+                                    android:text="Avatar 8"
+                                    android:textColor="@color/white"
                                     android:textSize="20sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -1019,14 +686,12 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
                                 android:gravity="center"
                                 android:orientation="vertical">
 
                                 <LinearLayout
                                     android:layout_width="165dp"
                                     android:layout_height="wrap_content"
-                                    android:background="@drawable/rounded_card1"
                                     android:elevation="5dp"
                                     android:gravity="center"
                                     android:orientation="vertical"
@@ -1034,21 +699,21 @@
                                     android:translationZ="2dp">
 
                                     <ImageView
-                                        android:id="@+id/imageAvatar12"
+                                        android:id="@+id/imageAvatar8"
                                         android:layout_width="140dp"
                                         android:layout_height="140dp"
                                         android:layout_gravity="center"
                                         android:layout_marginTop="20dp"
                                         android:layout_marginBottom="30dp"
                                         android:contentDescription="@string/user_avatar"
-                                        app:srcCompat="@raw/avatar_12" />
+                                        app:srcCompat="@raw/avatar_8" />
                                 </LinearLayout>
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="185dp"
+                                android:layout_marginTop="145dp"
                                 android:elevation="6dp"
                                 android:gravity="center"
                                 android:orientation="vertical"
@@ -1056,11 +721,11 @@
                                 android:translationZ="2dp">
 
                                 <com.google.android.material.button.MaterialButton
-                                    android:id="@+id/btn_buyAvatar12"
+                                    android:id="@+id/btn_buyAvatar8"
                                     android:layout_width="wrap_content"
                                     android:layout_height="35dp"
                                     android:background="@drawable/button_rounded"
-                                    android:text="5000"
+                                    android:text="250"
                                     android:textColor="@color/white_smoke"
                                     android:textSize="12sp"
                                     app:backgroundTint="@color/goldenrod"
@@ -1084,7 +749,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@color/mediumPurple" />
+                android:background="@color/dark_purple" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

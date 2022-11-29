@@ -5,7 +5,7 @@
     android:id="@+id/parentRelative"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/background_gradient"
+    android:background="@color/dark_purple"
     tools:context=".LoginActivity">
 
     <LinearLayout
@@ -49,19 +49,20 @@
                     android:textColor="@color/white" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:hint="@string/username"
                     android:textColorHint="@color/white_smoke"
+                    app:backgroundTint="@color/dark_gray"
                     app:boxStrokeColor="@color/white_smoke"
                     app:hintTextColor="@color/white_smoke"
                     app:startIconDrawable="@drawable/ic_person"
-                    app:boxCornerRadiusBottomEnd="20dp"
-                    app:boxCornerRadiusBottomStart="20dp"
-                    app:boxCornerRadiusTopEnd="20dp"
-                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
                     app:startIconTint="@color/white_smoke">
 
                     <EditText
@@ -72,6 +73,7 @@
                         android:inputType="textPersonName"
                         android:textColor="@color/white_smoke"
                         android:fontFamily="@font/proxima_nova"
+                        app:backgroundTint="@color/dark_gray"
                         tools:ignore="LabelFor" />
 
                     <Button
@@ -81,17 +83,18 @@
                         android:layout_gravity="end"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/white_smoke"
+                        android:background="@drawable/button_rounded"
                         android:elevation="5dp"
                         android:stateListAnimator="@null"
                         android:fontFamily="@font/proxima_nova"
                         android:text="@string/continues"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white_smoke"
                         android:textStyle="bold"
                         android:translationZ="2dp"
+                        app:backgroundTint="@color/dark_gray"
                         app:icon="@drawable/ic_next"
                         app:iconGravity="end"
-                        app:iconTint="@color/black" />
+                        app:iconTint="@color/white_smoke" />
 
                     <ProgressBar
                         android:id="@+id/progressBar"

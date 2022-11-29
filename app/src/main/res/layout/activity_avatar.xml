@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
+    android:background="@color/dark_purple"
     android:gravity="center"
     android:padding="10dp"
     tools:context=".AvatarActivity">
@@ -115,63 +115,26 @@
                     android:padding="15dp"
                     app:srcCompat="@raw/avatar_8" />
 
-                <ImageView
-                    android:id="@+id/avatar9"
-                    android:layout_width="125dp"
-                    android:layout_height="fill_parent"
-                    android:padding="15dp"
-                    app:srcCompat="@raw/avatar_9" />
-
-                <ImageView
-                    android:id="@+id/avatar10"
-                    android:layout_width="125dp"
-                    android:layout_height="125dp"
-                    android:layout_gravity="center"
-                    android:padding="15dp"
-                    app:srcCompat="@raw/avatar_10" />
-
-                <ImageView
-                    android:id="@+id/avatar11"
-                    android:layout_width="125dp"
-                    android:layout_height="fill_parent"
-                    android:padding="15dp"
-                    app:srcCompat="@raw/avatar_11" />
-
-                <ImageView
-                    android:id="@+id/avatar12"
-                    android:layout_width="125dp"
-                    android:layout_height="fill_parent"
-                    android:padding="15dp"
-                    app:srcCompat="@raw/avatar_12" />
-
             </LinearLayout>
 
         </HorizontalScrollView>
 
         <Button
             android:id="@+id/saveButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_margin="20dp"
-            android:background="@drawable/button_rounded"
-            app:backgroundTint="@color/white_smoke"
-            android:text="@string/save"
-            android:fontFamily="@font/proxima_nova"
-            android:textColor="@color/black"
-            android:textAllCaps="false" />
+            android:background="@raw/save"
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/closeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:background="@drawable/button_rounded"
-            app:backgroundTint="@color/white_smoke"
-            android:text="@string/close"
-            android:fontFamily="@font/proxima_nova"
-            android:textColor="@color/black"
-            android:textAllCaps="false" />
+            android:background="@raw/close"
+            app:backgroundTint="@null"  />
 
     </LinearLayout>
 

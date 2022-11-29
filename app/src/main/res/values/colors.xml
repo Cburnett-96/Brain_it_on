@@ -89,7 +89,7 @@
     <color name="pale_turquoise">#AFEEEE</color>
     <color name="greenYellow">#ADFF2F</color>
     <color name="light_blue">#ADD8E6</color>
-    <color name="dark_gray">#A9A9A9</color>
+    <color name="dark_gray">#222425</color>
     <color name="brown">#A52A2A</color>
     <color name="sienna">#A0522D</color>
     <color name="yellow_green">#9ACD32</color>
@@ -157,6 +157,7 @@
     <color name="ethereal_stroke">#363644</color>
     <color name="status_bar_color_light">#D6D9EA</color>
     <color name="status_bar_color_dark">#202030</color>
+    <color name="dark_purple">#471063</color>
 
     <!-- dots inactive colors -->
     <color name="dot_dark_screen1">#39d1ba</color>

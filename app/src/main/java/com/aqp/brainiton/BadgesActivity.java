@@ -53,8 +53,8 @@ public class BadgesActivity extends AppCompatActivity {
         Window window = this.getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(this, R.color.indigo));
-        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.mediumPurple));
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.dark_purple));
+        window.setNavigationBarColor(ContextCompat.getColor(this, R.color.dark_purple));
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
@@ -127,39 +127,39 @@ public class BadgesActivity extends AppCompatActivity {
     //Getting Badge Info and Apply to system
     private void BadgeInfo(){
         imageViewBadge1.setOnClickListener(view -> {
-            badgeName = "Badge 1";
-            badgeDescription = "Badge 1 descriptions";
+            badgeName = "Proficient";
+            badgeDescription = "You can unlock this by answering at least 7 riddles on stage two (6-9 letters)";
             badgeImage = "Badge1";
             showPopupWindow(view);
         });
         imageViewBadge2.setOnClickListener(view -> {
-            badgeName = "Badge 2";
-            badgeDescription = "Badge 2 descriptions";
+            badgeName = "Expert";
+            badgeDescription = "You can unlock this by completing stage two (6-9 letters)";
             badgeImage = "Badge2";
             showPopupWindow(view);
         });
         imageViewBadge3.setOnClickListener(view -> {
-            badgeName = "Badge 3";
-            badgeDescription = "Badge 3 descriptions";
+            badgeName = "Beginner";
+            badgeDescription = "You can unlock this by answering first 5 riddles at stage one.";
             badgeImage = "Badge3";
             showPopupWindow(view);
         });
         imageViewBadge4.setOnClickListener(view -> {
-            badgeName = "Badge 4";
-            badgeDescription = "Badge 4 descriptions";
+            badgeName = "Master";
+            badgeDescription = "You can unlock this by completing stage two (3-5 letters)";
             badgeImage = "Badge4";
             showPopupWindow(view);
         });
         imageViewBadge5.setOnClickListener(view -> {
-            badgeName = "Badge 5";
-            badgeDescription = "Badge 5 descriptions";
+            badgeName = "Elite";
+            badgeDescription = "You can unlock this by answering at least 7 riddles on stage two (3-5 letters)";
             badgeImage = "Badge5";
             showPopupWindow(view);
         });
         imageViewBadge6.setOnClickListener(view -> {
             //Toast.makeText(BadgesActivity.this, "Badge 6!", Toast.LENGTH_SHORT).show();
-            badgeName = "Badge 6";
-            badgeDescription = "Badge 6 descriptions";
+            badgeName = "Competent";
+            badgeDescription = "You can unlock this by answering at least 5 riddles on stage one (6-9 letters)";
             badgeImage = "Badge6";
             showPopupWindow(view);
         });
