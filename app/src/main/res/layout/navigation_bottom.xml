@@ -18,7 +18,6 @@
             android:background="@android:color/transparent"
             app:abb_indicatorColor="@color/white_smoke"
             app:abb_tabColorSelected="@color/white_smoke"
-            app:abb_tabColor="@color/white_smoke"
             app:abb_indicatorAppearance="round"
             app:abb_indicatorHeight="4dp"
             app:abb_indicatorMargin="16dp"

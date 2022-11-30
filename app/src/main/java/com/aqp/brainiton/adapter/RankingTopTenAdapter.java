@@ -181,30 +181,6 @@ public class RankingTopTenAdapter extends RecyclerView.Adapter<RankingTopTenAdap
                 holder.profileAvatar.setImageBitmap(bitmap);
                 break;
             }
-            case "avatar_9": {
-                InputStream imageStream = holder.profileAvatar.getResources().openRawResource(R.raw.avatar_9);
-                Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-                holder.profileAvatar.setImageBitmap(bitmap);
-                break;
-            }
-            case "avatar_10": {
-                InputStream imageStream = holder.profileAvatar.getResources().openRawResource(R.raw.avatar_10);
-                Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-                holder.profileAvatar.setImageBitmap(bitmap);
-                break;
-            }
-            case "avatar_11": {
-                InputStream imageStream = holder.profileAvatar.getResources().openRawResource(R.raw.avatar_11);
-                Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-                holder.profileAvatar.setImageBitmap(bitmap);
-                break;
-            }
-            case "avatar_12": {
-                InputStream imageStream = holder.profileAvatar.getResources().openRawResource(R.raw.avatar_12);
-                Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-                holder.profileAvatar.setImageBitmap(bitmap);
-                break;
-            }
             default: {
                 InputStream imageStream = holder.profileAvatar.getResources().openRawResource(R.raw.profile);
                 Bitmap bitmap = BitmapFactory.decodeStream(imageStream);

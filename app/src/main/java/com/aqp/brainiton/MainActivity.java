@@ -9,9 +9,6 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -28,7 +25,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -63,7 +59,7 @@ import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
-    private DatabaseReference databaseReference, uidRefAvatar, uidRanking, uidRefStages;
+    DatabaseReference databaseReference, uidRefAvatar, uidRanking, uidRefStages;
     private FirebaseUser currentUser;
     private TextView loginMessage;
     private SharedPreferences prefs;
@@ -429,30 +425,6 @@ public class MainActivity extends AppCompatActivity {
             }
             case "avatar_8": {
                 InputStream imageStream = getResources().openRawResource(R.raw.avatar_8);
-                Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-                avatarImage.setImageBitmap(bitmap);
-                break;
-            }
-            case "avatar_9": {
-                InputStream imageStream = getResources().openRawResource(R.raw.avatar_9);
-                Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-                avatarImage.setImageBitmap(bitmap);
-                break;
-            }
-            case "avatar_10": {
-                InputStream imageStream = getResources().openRawResource(R.raw.avatar_10);
-                Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-                avatarImage.setImageBitmap(bitmap);
-                break;
-            }
-            case "avatar_11": {
-                InputStream imageStream = getResources().openRawResource(R.raw.avatar_11);
-                Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-                avatarImage.setImageBitmap(bitmap);
-                break;
-            }
-            case "avatar_12": {
-                InputStream imageStream = getResources().openRawResource(R.raw.avatar_12);
                 Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
                 avatarImage.setImageBitmap(bitmap);
                 break;

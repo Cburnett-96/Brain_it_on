@@ -2,10 +2,12 @@ package com.aqp.brainiton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -91,19 +93,7 @@ public class AvatarActivity extends AppCompatActivity {
             changeAvatar.setImageBitmap(bitmap);
             editAvatarName = "avatar_1";
             avatarName.setText("Avatar 1");
-
-            if (isAvatar1) {
-                btnSave.setText("Save");
-                btnSave.setEnabled(true);
-                btnSave.setTextColor(Color.BLACK);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(216,216,216)));
-            }else{
-                btnSave.setEnabled(false);
-                btnSave.setTextColor(Color.WHITE);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
-                btnSave.setText("Purchase first at the avatar shop!");
-            }
-
+            isUnlock(isAvatar1);
         });
         avatar2.setOnClickListener(v -> {
             InputStream imageStream = getResources().openRawResource(R.raw.avatar_2);
@@ -111,17 +101,7 @@ public class AvatarActivity extends AppCompatActivity {
             changeAvatar.setImageBitmap(bitmap);
             editAvatarName = "avatar_2";
             avatarName.setText("Avatar 2");
-            if (isAvatar2) {
-                btnSave.setText("Save");
-                btnSave.setEnabled(true);
-                btnSave.setTextColor(Color.BLACK);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(216,216,216)));
-            }else{
-                btnSave.setEnabled(false);
-                btnSave.setTextColor(Color.WHITE);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
-                btnSave.setText("Purchase first at the avatar shop!");
-            }
+            isUnlock(isAvatar2);
         });
         avatar3.setOnClickListener(v -> {
             InputStream imageStream = getResources().openRawResource(R.raw.avatar_3);
@@ -129,17 +109,7 @@ public class AvatarActivity extends AppCompatActivity {
             changeAvatar.setImageBitmap(bitmap);
             editAvatarName = "avatar_3";
             avatarName.setText("Avatar 3");
-            if (isAvatar3) {
-                btnSave.setText("Save");
-                btnSave.setEnabled(true);
-                btnSave.setTextColor(Color.BLACK);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(216,216,216)));
-            }else{
-                btnSave.setEnabled(false);
-                btnSave.setTextColor(Color.WHITE);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
-                btnSave.setText("Purchase first at the avatar shop!");
-            }
+            isUnlock(isAvatar3);
         });
         avatar4.setOnClickListener(v -> {
             InputStream imageStream = getResources().openRawResource(R.raw.avatar_4);
@@ -147,17 +117,7 @@ public class AvatarActivity extends AppCompatActivity {
             changeAvatar.setImageBitmap(bitmap);
             editAvatarName = "avatar_4";
             avatarName.setText("Avatar 4");
-            if (isAvatar4) {
-                btnSave.setText("Save");
-                btnSave.setEnabled(true);
-                btnSave.setTextColor(Color.BLACK);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(216,216,216)));
-            }else{
-                btnSave.setEnabled(false);
-                btnSave.setTextColor(Color.WHITE);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
-                btnSave.setText("Purchase first at the avatar shop!");
-            }
+            isUnlock(isAvatar4);
         });
         avatar5.setOnClickListener(v -> {
             InputStream imageStream = getResources().openRawResource(R.raw.avatar_5);
@@ -165,17 +125,7 @@ public class AvatarActivity extends AppCompatActivity {
             changeAvatar.setImageBitmap(bitmap);
             editAvatarName = "avatar_5";
             avatarName.setText("Avatar 5");
-            if (isAvatar5) {
-                btnSave.setText("Save");
-                btnSave.setEnabled(true);
-                btnSave.setTextColor(Color.BLACK);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(216,216,216)));
-            }else{
-                btnSave.setEnabled(false);
-                btnSave.setTextColor(Color.WHITE);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
-                btnSave.setText("Purchase first at the avatar shop!");
-            }
+            isUnlock(isAvatar5);
         });
         avatar6.setOnClickListener(v -> {
             InputStream imageStream = getResources().openRawResource(R.raw.avatar_6);
@@ -183,17 +133,7 @@ public class AvatarActivity extends AppCompatActivity {
             changeAvatar.setImageBitmap(bitmap);
             editAvatarName = "avatar_6";
             avatarName.setText("Avatar 6");
-            if (isAvatar6) {
-                btnSave.setText("Save");
-                btnSave.setEnabled(true);
-                btnSave.setTextColor(Color.BLACK);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(216,216,216)));
-            }else{
-                btnSave.setEnabled(false);
-                btnSave.setTextColor(Color.WHITE);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
-                btnSave.setText("Purchase first at the avatar shop!");
-            }
+            isUnlock(isAvatar6);
         });
         avatar7.setOnClickListener(v -> {
             InputStream imageStream = getResources().openRawResource(R.raw.avatar_7);
@@ -201,17 +141,7 @@ public class AvatarActivity extends AppCompatActivity {
             changeAvatar.setImageBitmap(bitmap);
             editAvatarName = "avatar_7";
             avatarName.setText("Avatar 7");
-            if (isAvatar7) {
-                btnSave.setText("Save");
-                btnSave.setEnabled(true);
-                btnSave.setTextColor(Color.BLACK);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(216,216,216)));
-            }else{
-                btnSave.setEnabled(false);
-                btnSave.setTextColor(Color.WHITE);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
-                btnSave.setText("Purchase first at the avatar shop!");
-            }
+            isUnlock(isAvatar7);
         });
         avatar8.setOnClickListener(v -> {
             InputStream imageStream = getResources().openRawResource(R.raw.avatar_8);
@@ -219,17 +149,7 @@ public class AvatarActivity extends AppCompatActivity {
             changeAvatar.setImageBitmap(bitmap);
             editAvatarName = "avatar_8";
             avatarName.setText("Avatar 8");
-            if (isAvatar8) {
-                btnSave.setText("Save");
-                btnSave.setEnabled(true);
-                btnSave.setTextColor(Color.BLACK);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(216,216,216)));
-            }else{
-                btnSave.setEnabled(false);
-                btnSave.setTextColor(Color.WHITE);
-                btnSave.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
-                btnSave.setText("Purchase first at the avatar shop!");
-            }
+            isUnlock(isAvatar8);
         });
         btnSave.setOnClickListener(v -> {
             SoundPoolManager.playSound(1);
@@ -251,6 +171,19 @@ public class AvatarActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         uidRef = databaseReference.child("UserData").child(uid);
         user = mAuth.getCurrentUser();
+    }
+
+    private void isUnlock(Boolean b){
+        if (b) {
+            btnSave.setBackgroundResource(R.drawable.save);
+            btnSave.setEnabled(true);
+            btnSave.setText(null);
+        }else{
+            btnSave.setEnabled(false);
+            btnSave.setTextColor(Color.YELLOW);
+            btnSave.setBackgroundResource(R.drawable.none);
+            btnSave.setText("Lock!");
+        }
     }
 
     @Override

@@ -303,30 +303,6 @@ public class BadgesActivity extends AppCompatActivity {
                 avatarImage.setImageBitmap(bitmap);
                 break;
             }
-            case "avatar_9": {
-                InputStream imageStream = getResources().openRawResource(R.raw.avatar_9);
-                Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-                avatarImage.setImageBitmap(bitmap);
-                break;
-            }
-            case "avatar_10": {
-                InputStream imageStream = getResources().openRawResource(R.raw.avatar_10);
-                Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-                avatarImage.setImageBitmap(bitmap);
-                break;
-            }
-            case "avatar_11": {
-                InputStream imageStream = getResources().openRawResource(R.raw.avatar_11);
-                Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-                avatarImage.setImageBitmap(bitmap);
-                break;
-            }
-            case "avatar_12": {
-                InputStream imageStream = getResources().openRawResource(R.raw.avatar_12);
-                Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
-                avatarImage.setImageBitmap(bitmap);
-                break;
-            }
             default: {
                 InputStream imageStream = getResources().openRawResource(R.raw.profile);
                 Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
