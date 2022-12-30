@@ -36,7 +36,7 @@ public class FourLetterLibrary {
         HashMap<String,String> questions = new HashMap<>();
 
         questions.put("I am a cube that has some spots, I am rolled to play a game.","Dice");
-        questions.put("I am an instrument, something that you can beat with sticks.","Drum");
+        questions.put("I am an instrument, something that you can beat with sticks.","Drums");
         questions.put("I eat an insect, I can jump, and I am green.","Frog");
         questions.put("I am round, I have a handle, and you can carry water in me.","Pail");
         questions.put("I have many teeth; I use to fix your hair.","Comb");

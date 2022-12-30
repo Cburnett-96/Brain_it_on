@@ -15,6 +15,14 @@
         android:layout_margin="10dp"
         android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/backButtonSetting"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="start"
+            android:background="@drawable/ic_back"
+            app:backgroundTint="@color/goldenrod" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -95,39 +103,6 @@
                     android:thumb="@drawable/thumb_sound"
                     app:track="@drawable/track" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="20dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <Button
-                        android:id="@+id/btn_aboutUs"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@android:drawable/ic_dialog_info"
-                        app:backgroundTint="@null" />
-
-                    <TextView
-                        android:id="@+id/tv_AboutUs"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/about"
-                        android:fontFamily="@font/proxima_nova"
-                        android:textColor="@color/white_smoke"
-                        android:textStyle="bold" />
-                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

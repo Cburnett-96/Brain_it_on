@@ -44,7 +44,7 @@ public class RankingTopOneAdapter extends RecyclerView.Adapter<RankingTopOneAdap
     public void onBindViewHolder(@NonNull RankingTopOneAdapter.RankingViewHolder holder, int position) {
         UserRankingOne user = userList.get(position);
         holder.textViewName.setText(user.Username);
-        holder.textViewPoints.setText(String.valueOf(user.getRiddle()));
+        holder.textViewPoints.setText(String.valueOf(user.getPoints()));
         avatarName = user.Avatar;
         GetAvatarInfo(holder);
 

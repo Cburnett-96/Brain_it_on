@@ -63,16 +63,17 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
     private TextView loginMessage;
     private SharedPreferences prefs;
-    nl.joery.animatedbottombar.AnimatedBottomBar animatedBottomBar;
     RelativeLayout layoutRanking, layoutProfile, layoutShop, layoutSetting;
     LinearLayout layoutMain;
-    Button btnPlay, btnBadge, btnWordDay;
+    Button btnPlay, btnBadge, btnWordDay,
+    btnProfile, btnRank, btnShop, btnSetting,
+    btnBackProfile, btnBackRank, btnBackSetting, btnBackShop;
     String username, avatar, totalCoins, stage, questions, letterStage;
     String avatarName;
-    int coin;
+    int coin, points;
 
     //Profile
-    TextView tv_Username, tv_CurrentStage, tv_TotalQuestionAnswered, tv_CurrentCoin, tv_TotalCoins;
+    TextView tv_Username, tv_CurrentStage, tv_TotalQuestionAnswered, tv_CurrentCoin, tv_TotalCoins, tv_Points;
     Button btnEditAvatar, btnEditUsername, btnSaveUsername;
     EditText edtUsername;
     ImageView avatarImage;
@@ -112,8 +113,6 @@ public class MainActivity extends AppCompatActivity {
 
         //initialization
         loginMessage = findViewById(R.id.loginMessage);
-        animatedBottomBar = findViewById(R.id.bottom_bar);
-        animatedBottomBar.selectTabById(R.id.tab_play, true);
         layoutMain = findViewById(R.id.layoutMain);
         layoutRanking = findViewById(R.id.layoutRanking);
         layoutProfile = findViewById(R.id.layoutProfile);
@@ -123,6 +122,14 @@ public class MainActivity extends AppCompatActivity {
         btnPlay = findViewById(R.id.btn_play);
         btnBadge = findViewById(R.id.btn_badges);
         btnWordDay = findViewById(R.id.btn_wordOfTheDay);
+        btnProfile = findViewById(R.id.btnProfile);
+        btnRank = findViewById(R.id.btnLeaderboard);
+        btnShop = findViewById(R.id.btnShop);
+        btnSetting = findViewById(R.id.btnSetting);
+        btnBackShop = findViewById(R.id.backButtonShop);
+        btnBackSetting = findViewById(R.id.backButtonSetting);
+        btnBackProfile = findViewById(R.id.backButtonProfile);
+        btnBackRank = findViewById(R.id.backButtonRank);
 
         //saving and getting state on shared preferences
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -130,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
         //Methods of user auth and setting
         FirebaseAuth();
         UserSetting();
+        avatarName = prefs.getString("avatar",null);
 
         btnPlay.setOnClickListener(view -> {
             SoundPoolManager.playSound(1);
@@ -147,65 +155,55 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, WordDayActivity.class);
             startActivity(intent);
         });
-
-        //Bottom Navigation on click function
-        animatedBottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
-            @Override
-            public void onTabSelected(int i, @Nullable AnimatedBottomBar.Tab tab, int i1, @NonNull AnimatedBottomBar.Tab tab1) {
-                switch (animatedBottomBar.getSelectedIndex()){
-                    case 0:
-                        SoundPoolManager.playSound(1);
-                        UserProfile();
-                        GetAvatarInfo();
-                        layoutProfile.setVisibility(View.VISIBLE);
-                        layoutRanking.setVisibility(View.GONE);
-                        layoutMain.setVisibility(View.GONE);
-                        layoutShop.setVisibility(View.GONE);
-                        layoutSetting.setVisibility(View.GONE);
-                        break;
-                    case 1:
-                        UserRanking();
-                        SoundPoolManager.playSound(1);
-                        layoutRanking.setVisibility(View.VISIBLE);
-                        layoutMain.setVisibility(View.GONE);
-                        layoutProfile.setVisibility(View.GONE);
-                        layoutShop.setVisibility(View.GONE);
-                        layoutSetting.setVisibility(View.GONE);
-                        break;
-                    case 2:
-                        SoundPoolManager.playSound(1);
-                        layoutMain.setVisibility(View.VISIBLE);
-                        layoutShop.setVisibility(View.GONE);
-                        layoutSetting.setVisibility(View.GONE);
-                        layoutRanking.setVisibility(View.GONE);
-                        layoutProfile.setVisibility(View.GONE);
-                        break;
-                    case 3:
-                        UserShop();
-                        SoundPoolManager.playSound(1);
-                        layoutShop.setVisibility(View.VISIBLE);
-                        layoutSetting.setVisibility(View.GONE);
-                        layoutRanking.setVisibility(View.GONE);
-                        layoutProfile.setVisibility(View.GONE);
-                        break;
-                    case 4:
-                        SoundPoolManager.playSound(1);
-                        layoutSetting.setVisibility(View.VISIBLE);
-                        layoutShop.setVisibility(View.GONE);
-                        layoutRanking.setVisibility(View.GONE);
-                        layoutProfile.setVisibility(View.GONE);
-                        break;
-                    default:
-                        FirebaseAuth();
-                }
-            }
-
-            @Override
-            public void onTabReselected(int i, @NonNull AnimatedBottomBar.Tab tab) {
-
-            }
+        btnBackProfile.setOnClickListener(view -> BackMain());
+        btnBackRank.setOnClickListener(view -> BackMain());
+        btnBackShop.setOnClickListener(view -> BackMain());
+        btnBackSetting.setOnClickListener(view -> BackMain());
+        btnProfile.setOnClickListener(view -> {
+            SoundPoolManager.playSound(1);
+            UserProfile();
+            GetAvatarInfo();
+            layoutProfile.setVisibility(View.VISIBLE);
+            layoutRanking.setVisibility(View.GONE);
+            layoutMain.setVisibility(View.GONE);
+            layoutShop.setVisibility(View.GONE);
+            layoutSetting.setVisibility(View.GONE);
+        });
+        btnRank.setOnClickListener(view -> {
+            UserRanking();
+            SoundPoolManager.playSound(1);
+            layoutRanking.setVisibility(View.VISIBLE);
+            layoutMain.setVisibility(View.GONE);
+            layoutProfile.setVisibility(View.GONE);
+            layoutShop.setVisibility(View.GONE);
+            layoutSetting.setVisibility(View.GONE);
+        });
+        btnShop.setOnClickListener(view -> {
+            UserShop();
+            SoundPoolManager.playSound(1);
+            layoutShop.setVisibility(View.VISIBLE);
+            layoutSetting.setVisibility(View.GONE);
+            layoutRanking.setVisibility(View.GONE);
+            layoutProfile.setVisibility(View.GONE);
+        });
+        btnSetting.setOnClickListener(view -> {
+            SoundPoolManager.playSound(1);
+            layoutSetting.setVisibility(View.VISIBLE);
+            layoutShop.setVisibility(View.GONE);
+            layoutRanking.setVisibility(View.GONE);
+            layoutProfile.setVisibility(View.GONE);
         });
 
+    }
+
+    private void BackMain(){
+        FirebaseAuth();
+        SoundPoolManager.playSound(1);
+        layoutMain.setVisibility(View.VISIBLE);
+        layoutShop.setVisibility(View.GONE);
+        layoutSetting.setVisibility(View.GONE);
+        layoutRanking.setVisibility(View.GONE);
+        layoutProfile.setVisibility(View.GONE);
     }
 
     //Get and Set Firebase auth instance and database value
@@ -220,6 +218,7 @@ public class MainActivity extends AppCompatActivity {
                 String getAvatar = Objects.requireNonNull(snapshot.child("Avatar").getValue()).toString();
                 String getCoin = Objects.requireNonNull(snapshot.child("Coin").getValue()).toString();
                 String getTotalCoins = Objects.requireNonNull(snapshot.child("TotalCoins").getValue()).toString();
+                String getPoints = Objects.requireNonNull(snapshot.child("Points").getValue()).toString();
                 String getStage = Objects.requireNonNull(snapshot.child("Stage").getValue()).toString();
                 String getQuestions = Objects.requireNonNull(snapshot.child("Question").getValue()).toString();
                 String getLetterStage = Objects.requireNonNull(snapshot.child("LetterStage").getValue()).toString();
@@ -231,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
                 stage = getStage;
                 questions = getQuestions;
                 letterStage = getLetterStage;
+                points = Integer.parseInt(getPoints);
 
                 loginMessage.setText("Welcome! "+getUsername);
                 tvCoins.setText(String.valueOf(coin));
@@ -242,11 +242,12 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString("totalCoins", getTotalCoins);
                 editor.putString("stage", getStage);
                 editor.putString("questions", getQuestions);
+                editor.putInt("points", Integer.parseInt(getPoints));
                 editor.apply();
 
                 uidRanking = FirebaseDatabase.getInstance().getReference().child("UserRanking").child(currentUser.getUid());
                 uidRanking.child("Username").setValue(getUsername);
-                uidRanking.child("Riddle").setValue(Integer.parseInt(getQuestions));
+                uidRanking.child("Points").setValue(Integer.parseInt(getPoints));
                 uidRanking.child("Avatar").setValue(getAvatar);
             }
             @Override
@@ -326,19 +327,19 @@ public class MainActivity extends AppCompatActivity {
         tv_Username = findViewById(R.id.tvUsername);
         tv_TotalCoins = findViewById(R.id.tvTotalCoins);
         tv_TotalQuestionAnswered = findViewById(R.id.tvTotalQuestion);
+        tv_Points = findViewById(R.id.tvPts);
         btnEditAvatar = findViewById(R.id.buttonEditAvatar);
         btnEditUsername = findViewById(R.id.buttonEditUsername);
         btnSaveUsername = findViewById(R.id.buttonSaveUsername);
         avatarImage = findViewById(R.id.imageViewAvatar);
         edtUsername = findViewById(R.id.editTextUsername);
 
-        avatarName = prefs.getString("avatar",null);
-
         tv_Username.setText(username);
         tv_CurrentStage.setText(stage+" ["+letterStage+"]");
         tv_TotalQuestionAnswered.setText(questions);
         tv_CurrentCoin.setText(String.valueOf(coin));
         tv_TotalCoins.setText(totalCoins);
+        tv_Points.setText(String.valueOf(points));
         edtUsername.setHint(username);
 
         btnEditAvatar.setOnClickListener(view -> {
@@ -524,16 +525,22 @@ public class MainActivity extends AppCompatActivity {
         isAvatar8 = prefs.getBoolean("isAvatar8", false);
 
         if(isAvatar1){
-            btnAvatar1.setText(R.string.apply);
-            btnAvatar1.setIconResource(R.drawable.ic_check);
+            if (Objects.equals(avatarName, "avatar_1")){
+                btnAvatar1.setText(R.string.selected);
+                btnAvatar1.setIconResource(R.drawable.ic_profile);
+            } else {
+                btnAvatar1.setText(R.string.apply);
+                btnAvatar1.setIconResource(R.drawable.ic_check);
+            }
             btnAvatar1.setEnabled(false);
             btnAvatar1.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
         } else {
             btnAvatar1.setOnClickListener(view -> {
                 if (isAvatar1) {
-                    SoundPoolManager.playSound(1);
+                    avatarName = "avatar_1";
                     databaseReference.child("Avatar").setValue("avatar_1");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
+                    BackMain();
                 } else {
                     if (30 <= coin) {
                         SoundPoolManager.playSound(1);
@@ -552,16 +559,22 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(isAvatar2){
-            btnAvatar2.setText(R.string.apply);
-            btnAvatar2.setIconResource(R.drawable.ic_check);
+            if (Objects.equals(avatarName, "avatar_2")){
+                btnAvatar2.setText(R.string.selected);
+                btnAvatar2.setIconResource(R.drawable.ic_profile);
+            } else {
+                btnAvatar2.setText(R.string.apply);
+                btnAvatar2.setIconResource(R.drawable.ic_check);
+            }
             btnAvatar2.setEnabled(false);
             btnAvatar2.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
         } else {
             btnAvatar2.setOnClickListener(view -> {
                 if (isAvatar2) {
-                    SoundPoolManager.playSound(1);
+                    avatarName = "avatar_2";
                     databaseReference.child("Avatar").setValue("avatar_2");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
+                    BackMain();
                 } else {
                     if (30 <= coin) {
                         SoundPoolManager.playSound(1);
@@ -579,16 +592,22 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         if(isAvatar3){
-            btnAvatar3.setText(R.string.apply);
-            btnAvatar3.setIconResource(R.drawable.ic_check);
+            if (Objects.equals(avatarName, "avatar_3")){
+                btnAvatar3.setText(R.string.selected);
+                btnAvatar3.setIconResource(R.drawable.ic_profile);
+            } else {
+                btnAvatar3.setText(R.string.apply);
+                btnAvatar3.setIconResource(R.drawable.ic_check);
+            }
             btnAvatar3.setEnabled(false);
             btnAvatar3.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
         } else {
             btnAvatar3.setOnClickListener(view -> {
                 if (isAvatar3) {
-                    SoundPoolManager.playSound(1);
+                    avatarName = "avatar_3";
                     databaseReference.child("Avatar").setValue("avatar_3");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
+                    BackMain();
                 } else {
                     if (50 <= coin) {
                         SoundPoolManager.playSound(1);
@@ -606,16 +625,22 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         if(isAvatar4){
-            btnAvatar4.setText(R.string.apply);
-            btnAvatar4.setIconResource(R.drawable.ic_check);
+            if (Objects.equals(avatarName, "avatar_4")){
+                btnAvatar4.setText(R.string.selected);
+                btnAvatar4.setIconResource(R.drawable.ic_profile);
+            } else {
+                btnAvatar4.setText(R.string.apply);
+                btnAvatar4.setIconResource(R.drawable.ic_check);
+            }
             btnAvatar4.setEnabled(false);
             btnAvatar4.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
         } else {
             btnAvatar4.setOnClickListener(view -> {
                 if (isAvatar4) {
-                    SoundPoolManager.playSound(1);
+                    avatarName = "avatar_4";
                     databaseReference.child("Avatar").setValue("avatar_4");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
+                    BackMain();
                 } else {
                     if (70 <= coin) {
                         SoundPoolManager.playSound(1);
@@ -633,16 +658,22 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         if(isAvatar5){
-            btnAvatar5.setText(R.string.apply);
-            btnAvatar5.setIconResource(R.drawable.ic_check);
+            if (Objects.equals(avatarName, "avatar_5")){
+                btnAvatar5.setText(R.string.selected);
+                btnAvatar5.setIconResource(R.drawable.ic_profile);
+            } else {
+                btnAvatar5.setText(R.string.apply);
+                btnAvatar5.setIconResource(R.drawable.ic_check);
+            }
             btnAvatar5.setEnabled(false);
             btnAvatar5.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
         } else {
             btnAvatar5.setOnClickListener(view -> {
                 if (isAvatar5) {
-                    SoundPoolManager.playSound(1);
+                    avatarName = "avatar_5";
                     databaseReference.child("Avatar").setValue("avatar_5");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
+                    BackMain();
                 } else {
                     if (100 <= coin) {
                         SoundPoolManager.playSound(1);
@@ -660,16 +691,22 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         if(isAvatar6){
-            btnAvatar6.setText(R.string.apply);
-            btnAvatar6.setIconResource(R.drawable.ic_check);
+            if (Objects.equals(avatarName, "avatar_6")){
+                btnAvatar6.setText(R.string.selected);
+                btnAvatar6.setIconResource(R.drawable.ic_profile);
+            } else {
+                btnAvatar6.setText(R.string.apply);
+                btnAvatar6.setIconResource(R.drawable.ic_check);
+            }
             btnAvatar6.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
             btnAvatar6.setEnabled(false);
         } else {
             btnAvatar6.setOnClickListener(view -> {
                 if (isAvatar6) {
-                    SoundPoolManager.playSound(1);
+                    avatarName = "avatar_6";
                     databaseReference.child("Avatar").setValue("avatar_6");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
+                    BackMain();
                 } else {
                     if (120 <= coin) {
                         SoundPoolManager.playSound(1);
@@ -687,16 +724,22 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         if(isAvatar7){
-            btnAvatar7.setText(R.string.apply);
-            btnAvatar7.setIconResource(R.drawable.ic_check);
+            if (Objects.equals(avatarName, "avatar_7")){
+                btnAvatar7.setText(R.string.selected);
+                btnAvatar7.setIconResource(R.drawable.ic_profile);
+            } else {
+                btnAvatar7.setText(R.string.apply);
+                btnAvatar7.setIconResource(R.drawable.ic_check);
+            }
             btnAvatar7.setEnabled(false);
             btnAvatar7.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
         } else {
             btnAvatar7.setOnClickListener(view -> {
                 if (isAvatar7) {
-                    SoundPoolManager.playSound(1);
+                    avatarName = "avatar_7";
                     databaseReference.child("Avatar").setValue("avatar_7");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
+                    BackMain();
                 } else {
                     if (200 <= coin) {
                         SoundPoolManager.playSound(1);
@@ -714,16 +757,22 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         if(isAvatar8){
-            btnAvatar8.setText(R.string.apply);
-            btnAvatar8.setIconResource(R.drawable.ic_check);
+            if (Objects.equals(avatarName, "avatar_8")){
+                btnAvatar8.setText(R.string.selected);
+                btnAvatar8.setIconResource(R.drawable.ic_profile);
+            } else {
+                btnAvatar8.setText(R.string.apply);
+                btnAvatar8.setIconResource(R.drawable.ic_check);
+            }
             btnAvatar8.setEnabled(false);
             btnAvatar8.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.dark_gray));
         } else {
             btnAvatar8.setOnClickListener(view -> {
                 if (isAvatar8) {
-                    SoundPoolManager.playSound(1);
+                    avatarName = "avatar_8";
                     databaseReference.child("Avatar").setValue("avatar_8");
                     Toast.makeText(this, "Successfully Applied!", Toast.LENGTH_SHORT).show();
+                    BackMain();
                 } else {
                     if (250 <= coin) {
                         SoundPoolManager.playSound(1);
@@ -765,7 +814,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewTopTen.setAdapter(adapterTopTen);
 
         Query query = FirebaseDatabase.getInstance().getReference("UserRanking")
-                .orderByChild("Riddle");
+                .orderByChild("Points");
         ValueEventListener valueEventListener = new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override

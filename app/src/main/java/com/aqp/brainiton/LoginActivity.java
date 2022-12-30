@@ -23,9 +23,13 @@ import com.aqp.brainiton.model.UserData;
 import com.aqp.brainiton.model.UserStages;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
@@ -38,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edtUsername;
 
     String avatar, letterStage;
-    int coin, totalCoins, question, stage;
+    int coin, totalCoins, question, stage, points;
     SharedPreferences prefs;
 
     @Override
@@ -66,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         stage = 0;
         coin = 0;
         totalCoins = 0;
+        points = 0;
         avatar = "default";
         letterStage = "3-5 letters";
 
@@ -78,41 +83,61 @@ public class LoginActivity extends AppCompatActivity {
         btnContinue.setOnClickListener(v -> {
             progressBar.setVisibility(View.VISIBLE);
             String username = edtUsername.getText().toString().trim();
-            UserData userData = new UserData(username, avatar, letterStage, stage, question, coin, totalCoins);
+            UserData userData = new UserData(username, avatar, letterStage, stage, question, coin, totalCoins, points);
             UserAvatar userAvatar = new UserAvatar(false, false, false, false, false, false, false, false, false, false, false, false);
             UserBadge userBadge = new UserBadge(false, false, false, false, false, false);
-            UserStages userStages = new UserStages(true, false, false, false, false, false, false, false, false, false, false, false,false, false, false);
-            if (!TextUtils.isEmpty(username)){
-                mAuth.signInAnonymously().
-                        addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        progressBar.setVisibility(View.GONE);
+            UserStages userStages = new UserStages(true, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+            if (!TextUtils.isEmpty(username)) {
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                ref.child("UserData").orderByChild("Username").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            // use "username" already exists
+                            Toast.makeText(LoginActivity.this, "Username already exist!", Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.GONE);
+                        } else {
+                            // User does not exist.
+                            mAuth.signInAnonymously().
+                                    addOnCompleteListener(task -> {
+                                        if (task.isSuccessful()) {
+                                            progressBar.setVisibility(View.GONE);
 
-                        myRef = database.getReference("UserData").child(Objects.requireNonNull(mAuth.getUid()));
-                        myRef.setValue(userData);
+                                            myRef = database.getReference("UserData").child(Objects.requireNonNull(mAuth.getUid()));
+                                            myRef.setValue(userData);
 
-                        myRefAvatar = database.getReference("UserAvatar").child(Objects.requireNonNull(mAuth.getUid()));
-                        myRefAvatar.setValue(userAvatar);
+                                            myRefAvatar = database.getReference("UserAvatar").child(Objects.requireNonNull(mAuth.getUid()));
+                                            myRefAvatar.setValue(userAvatar);
 
-                        myRefBadge = database.getReference("UserBadge").child(Objects.requireNonNull(mAuth.getUid()));
-                        myRefBadge.setValue(userBadge);
+                                            myRefBadge = database.getReference("UserBadge").child(Objects.requireNonNull(mAuth.getUid()));
+                                            myRefBadge.setValue(userBadge);
 
-                        myRefStages = database.getReference("UserStages").child(Objects.requireNonNull(mAuth.getUid()));
-                        myRefStages.setValue(userStages);
+                                            myRefStages = database.getReference("UserStages").child(Objects.requireNonNull(mAuth.getUid()));
+                                            myRefStages.setValue(userStages);
 
-                        SharedPreferences.Editor editor = prefs.edit();
-                        editor.putString("music setting", "on");
-                        editor.putString("sound setting", "on");
-                        editor.apply();
+                                            SharedPreferences.Editor editor = prefs.edit();
+                                            editor.putString("music setting", "on");
+                                            editor.putString("sound setting", "on");
+                                            editor.putString("avatar", avatar);
+                                            editor.apply();
 
-                        Intent intent = new Intent(this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
+                                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Log.e("TAG", e.getMessage());            //return error in logs
+                                    });
+                        }
                     }
-                })
-                        .addOnFailureListener(e -> {
-                            Log.e("TAG",e.getMessage());            //return error in logs
-                        });
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
             } else {
                 progressBar.setVisibility(View.GONE);          //invisible the progress bar
                 Toast.makeText(this, "Please enter valid Username", Toast.LENGTH_SHORT).show();

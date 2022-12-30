@@ -1,11 +1,15 @@
 package com.aqp.brainiton;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -13,7 +17,6 @@ import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -21,18 +24,20 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.aqp.brainiton.other.Constants;
-import com.aqp.brainiton.other.EightLetterLibrary;
 import com.aqp.brainiton.other.FourLetterLibrary;
 import com.aqp.brainiton.other.SixLetterLibrary;
 import com.aqp.brainiton.other.SoundPoolManager;
@@ -46,6 +51,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -54,6 +60,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
+import java.util.Set;
 
 public class PlayActivity extends AppCompatActivity {
 
@@ -61,18 +68,21 @@ public class PlayActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
 
-    private int presCounter = 0;
-    private int maxPresCounter;
+    int presCounter = 0;
+    int maxPresCounter;
     String[] keys = null;
     String answerWord, subject;
     int stageCoin;
     int totalCoins = 0;
+    int points = 0;
+    int totalPoints = 0;
     String textAnswer, textDescription;
     TextView textScreen, textQuestion, textTitle;
     Animation smallbigforth;
-    Button btnShuffle, btnReset, btnBack, btnCoin, btnPronoun, btnClue;
+    Button btnShuffle, btnReset, btnBack, btnCoin, btnPronoun, btnClue, btnRetry, btnFreeze, btnCloseClue;
     EditText editText;
-    LinearLayout linearLayout, layoutNextStage;
+    LinearLayout linearLayout, layoutNextStage, layoutFailed, layoutClue;
+    ImageView imageViewClue;
 
     private int currentQuestionIndex = 0;
     int max;
@@ -90,6 +100,19 @@ public class PlayActivity extends AppCompatActivity {
     boolean isStage1Four, isStage1Six, isStage1Eight;
     boolean isBadge1, isBadge2, isBadge3, isBadge4, isBadge5, isBadge6;
 
+    //Timer Variable
+    private static final long START_TIME_IN_MILLIS = 61000;
+    private static final long ADD_TIME_IN_MILLIS = 60000;
+    private CountDownTimer mCountDownTimer;
+    boolean mTimerRunning;
+    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    private ProgressBar mProgressBar;
+    long timeLeft;
+    TextView textViewShowTime;
+    boolean freeze;
+    int earn;
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,14 +127,21 @@ public class PlayActivity extends AppCompatActivity {
         editText = findViewById(R.id.editText);
         linearLayout = findViewById(R.id.layoutParent);
         layoutNextStage = findViewById(R.id.layoutNextStage);
+        layoutFailed = findViewById(R.id.layoutFailed);
+        layoutClue = findViewById(R.id.layoutClue);
         btnReset = findViewById(R.id.resetButton);
         btnShuffle = findViewById(R.id.shuffleButton);
         btnBack = findViewById(R.id.backButton);
         btnCoin = findViewById(R.id.coinButton);
         btnPronoun = findViewById(R.id.btn_Pronoun);
         btnClue = findViewById(R.id.clueButton);
+        btnCloseClue = findViewById(R.id.btn_CloseClue);
+        btnRetry = findViewById(R.id.btn_retry);
+        btnFreeze = findViewById(R.id.btn_Freeze);
         textScreen = findViewById(R.id.textScreen);
         textTitle = findViewById(R.id.textTitle);
+        textViewShowTime = findViewById(R.id.text_view_countdown);
+        imageViewClue = findViewById(R.id.imageViewClue);
         smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
 
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -130,10 +160,19 @@ public class PlayActivity extends AppCompatActivity {
         max  = intentSubject.getIntExtra("Riddle Size",0) - 1;
         textTitle.setText(subject);
 
+        mProgressBar = findViewById(R.id.progressBarCircle);
+        mProgressBar.setMax((int)START_TIME_IN_MILLIS / 1000);
+
         //Call
         GetBadges();
         GetStages();
         NextStage();
+        if (textAnswer.length() >= 6){
+            mTimeLeftInMillis += ADD_TIME_IN_MILLIS;
+            mProgressBar.setMax((int)(mTimeLeftInMillis / 1000));
+            updateCountDownText();
+        }
+        startTimer();
 
         btnShuffle.setOnClickListener(view -> {
             SoundPoolManager.playSound(0);
@@ -147,13 +186,14 @@ public class PlayActivity extends AppCompatActivity {
             SoundPoolManager.playSound(0);
             AlertDialog.Builder alertExit = new AlertDialog.Builder(this);
             alertExit.setTitle("Exit Current Riddle")
-                    .setMessage("Are you certain want to leave? \n" +
-                            "\nNote: The game will not be saved!")
+                    .setMessage("You certain want to break? \n" +
+                            "\nNote: Answered Riddle will saved and you can still answer the remaining riddle!")
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setCancelable(false)
                     .setPositiveButton("Yes", (dialog, which) -> {
                         //Back to Menu Activity
                         overridePendingTransition(0, 0);
+                        stopTimer();
                         finish();
                     })
                     .setNegativeButton("No", (dialog, which) -> {
@@ -166,8 +206,8 @@ public class PlayActivity extends AppCompatActivity {
             SoundPoolManager.playSound(0);
             AlertDialog.Builder alertExit = new AlertDialog.Builder(this);
             alertExit.setTitle("Coins!")
-                    .setMessage("You can get some coins by solving this riddle!!\n " +
-                            "\nYou have total earned on this stage: " +totalCoins+" coins")
+                    .setMessage("You can get some coins and points by solving this riddle!!\n " +
+                            "\nYou have total earned on this stage: "+totalPoints+" pts & " +totalCoins+" coins")
                     .setIcon(android.R.drawable.ic_dialog_info)
                     .setCancelable(false)
                     .setPositiveButton("Close", (dialog, which) -> {
@@ -178,9 +218,72 @@ public class PlayActivity extends AppCompatActivity {
 
         btnClue.setOnClickListener(view -> {
             SoundPoolManager.playSound(0);
-            Toast.makeText(view.getContext(), "Under-development!", Toast.LENGTH_SHORT).show();
-            /*Intent intent = new Intent(view.getContext(), ImageProcessActivity.class);
-            view.getContext().startActivity(intent);*/
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("Clue?")
+                    .setMessage("You can use clue to know more on current riddle!")
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .setCancelable(false)
+                    .setPositiveButton("-2 coins", (dialog, which) -> {
+                        totalCoins -= 2;
+                        myRef.child("Coin").setValue(ServerValue.increment(-2));
+                        layoutClue.setVisibility(View.VISIBLE);
+                        int res = getResources().getIdentifier(textAnswer.toLowerCase(Locale.ROOT), "raw", getPackageName());
+                        if(res != 0){
+                            InputStream imageStream = this.getResources().openRawResource(res);
+                            Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
+                            imageViewClue.setImageBitmap(bitmap);
+                        }
+                    })
+                    .setNegativeButton("Close", (dialog, which) -> {
+                    });
+            AlertDialog dialog = alert.create();
+            dialog.show();
+        });
+        btnCloseClue.setOnClickListener(view -> {
+            SoundPoolManager.playSound(0);
+            layoutClue.setVisibility(View.GONE);
+        });
+
+        btnFreeze.setOnClickListener(view -> {
+            SoundPoolManager.playSound(0);
+            AlertDialog.Builder alertExit = new AlertDialog.Builder(this);
+            if (freeze){
+                alertExit.setTitle("Continue to Answer?")
+                        .setMessage("You already know the answer?")
+                        .setIcon(android.R.drawable.ic_dialog_info)
+                        .setCancelable(false)
+                        .setPositiveButton("Continue", (dialog, which) -> {
+                            freeze = false;
+                            startTimer();
+                            btnReset.setEnabled(true);
+                            btnShuffle.setEnabled(true);
+                            doReset();
+                        })
+                        .setNegativeButton("Close", (dialog, which) -> {
+                        });
+                AlertDialog dialog = alertExit.create();
+                dialog.show();
+            } else {
+                alertExit.setTitle("Freeze...")
+                        .setMessage("You can use freeze, to pause current riddle and timer!\n" +
+                                "\nYou can continue to answer by clicking again this freeze button!")
+                        .setIcon(android.R.drawable.ic_dialog_info)
+                        .setCancelable(false)
+                        .setPositiveButton("-2 coins", (dialog, which) -> {
+                            freeze = true;
+                            stopTimer();
+                            totalCoins -= 2;
+                            myRef.child("Coin").setValue(ServerValue.increment(-2));
+                            btnReset.setEnabled(false);
+                            btnShuffle.setEnabled(false);
+                            doReset();
+                        })
+                        .setNegativeButton("Close", (dialog, which) -> {
+                        });
+                AlertDialog dialog = alertExit.create();
+                dialog.show();
+            }
+
         });
 
         textToSpeech = new TextToSpeech(getApplicationContext(), status -> {
@@ -199,10 +302,8 @@ public class PlayActivity extends AppCompatActivity {
             textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH,null);
             textToSpeech.setSpeechRate(0.5f);
         });
-    }
 
-    public int getRandomNumber(int max) {
-        return (int) ((Math.random() * (max)) + 0);
+        btnRetry.setOnClickListener(view -> Retry());
     }
 
     @SuppressLint("SetTextI18n")
@@ -250,6 +351,8 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
         viewParent.addView(textView);
+
+        textView.setEnabled(!freeze);
     }
 
     private void GetBadges(){
@@ -273,6 +376,7 @@ public class PlayActivity extends AppCompatActivity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void GetStages(){
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         layoutParams.gravity = Gravity.CENTER;
@@ -293,17 +397,28 @@ public class PlayActivity extends AppCompatActivity {
                 " "+getString(R.string.stage_01))) {
             getWordMap = SixLetterLibrary.getStageQuestions(this, getString(R.string.stage_01), max);
         }
+        //Get all question and answer based on user selection
         if (subject.equals(getString(R.string.six_seven_letters)+
                 " "+getString(R.string.stage_02))) {
             getWordMap = SixLetterLibrary.getStage2Questions(this, getString(R.string.stage_02), max);
         }
-        /*if (subject.equals(getString(R.string.eight_ten_letters)+
-                " "+getString(R.string.stage_01))) {
-            getWordMap = EightLetterLibrary.getStageQuestions(this, getString(R.string.stage_01), max);
-        }*/
 
+        //Temporary store all question and answer on String ArrayList
         description = new ArrayList<>(getWordMap.keySet());
         word = new ArrayList<>(getWordMap.values());
+
+        //Getting all answered riddle and remove it.
+        Map<String, ?> entries = prefs.getAll();
+        Set<String> keys = entries.keySet();
+
+        for (String key : keys) {
+            if (getWordMap.containsValue(key)){
+                getWordMap.remove(prefs.getString(key, null),key);
+                word.remove(key);
+                description.remove(prefs.getString(key, null));
+            }
+        }
+        max = getWordMap.size() - 1;
 
         long seed = System.nanoTime();
         Collections.shuffle(description, new Random(seed));
@@ -321,6 +436,7 @@ public class PlayActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void NextStage() {
+
         textAnswer = word.get(currentQuestionIndex);
 
         //randomizedCharacter1 = (char) (rnd.nextInt(26) + 'A');
@@ -328,10 +444,8 @@ public class PlayActivity extends AppCompatActivity {
 
         //String withRandomChar = textAnswer + randomizedCharacter1 + randomizedCharacter2;
         String withRandomChar = textAnswer;
-
         keys = withRandomChar.trim().toUpperCase().split("");
         textDescription = description.get(currentQuestionIndex);
-
         Collections.shuffle(Arrays.asList(keys));
 
         for (String key : keys) {
@@ -343,11 +457,21 @@ public class PlayActivity extends AppCompatActivity {
         textScreen.setText("Question: " + (currentQuestionIndex + 1) + " / "+max);
     }
 
+    public void saveArrayList(String desc, String key){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(key, desc);
+        editor.apply();
+    }
+
     private void doValidate() {
+        points = presCounter;
         presCounter = 0;
 
         if (editText.getText().toString().equals(textAnswer.trim().toUpperCase())) {
+
             currentQuestionIndex++;
+            stopTimer();
             //Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
 
             SoundPoolManager.playSound(2);
@@ -355,6 +479,7 @@ public class PlayActivity extends AppCompatActivity {
             answerWord = editText.getText().toString();
             editText.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.goldenrod)));
             editText.setTextColor(this.getResources().getColor(R.color.white));
+            saveArrayList(textDescription, textAnswer);
 
             new Handler().postDelayed(() -> {
                 editText.setText("");
@@ -410,7 +535,6 @@ public class PlayActivity extends AppCompatActivity {
         for (String key : keys) {
             addView(linearLayout, key, editText);
         }
-
     }
 
     private void doReset() {
@@ -421,7 +545,6 @@ public class PlayActivity extends AppCompatActivity {
         for (String key : keys) {
             addView(linearLayout, key, editText);
         }
-
     }
 
     //Popup Window display method of word synonyms and next stage
@@ -434,46 +557,48 @@ public class PlayActivity extends AppCompatActivity {
         btnNextStage = findViewById(R.id.btn_nextStage);
 
         if (textAnswer.length() == 3){
-            //stageCoin = intentSubject.getIntExtra("Stage Coins",0);
-            stageCoin = 5;
-            totalCoins += stageCoin;
+            totalPoints += points;
         }
         if (textAnswer.length() == 4){
-            stageCoin = 10;
-            totalCoins += stageCoin;
+            totalPoints += points;
         }
         if (textAnswer.length() == 5){
-            stageCoin = 15;
-            totalCoins += stageCoin;
+            totalPoints += points;
         }
         if (textAnswer.length() == 6 | textAnswer.length() == 7){
-            stageCoin = 25;
-            totalCoins += stageCoin;
+            totalPoints += points;
         }
         if (textAnswer.length() == 8 | textAnswer.length() == 9){
-            stageCoin = 30;
-            totalCoins += stageCoin;
+            totalPoints += points;
+        }
+
+        if (timeLeft >= 30000){
+            earn = 20;
+            stageCoin += 20;
+            totalCoins += 20;
+        } else {
+            earn = 15;
+            stageCoin += 15;
+            totalCoins += 15;
         }
 
         tvWord.setText(answerWord);
-        tvCoinsEarned.setText("You got "+ stageCoin +" coins");
+        tvCoinsEarned.setText("You got "+ earn +" coins\n"+points+" pts Earned!");
 
         tvSynonym.setText(R.string.loading);
 
         requestApiButtonClickThesaurus();
 
-        //Earn Badge
+        //Earn Badge/Points/Coin
         EarnBadges();
+        EarnPointsCoin();
+        mTimeLeftInMillis = 0;
 
         if (currentQuestionIndex == max) {
+            btnNextStage.setTextColor(Color.YELLOW);
+            btnNextStage.setBackgroundResource(R.drawable.none);
             btnNextStage.setText(getText(R.string.finish));
-            tvCoinsEarned.setText("You got total of: "+ totalCoins +" coins earned!");
-
-            int totalEarned = totalCoins;
-
-            myRef.child("Coin").setValue(ServerValue.increment(totalEarned));
-            myRef.child("TotalCoins").setValue(ServerValue.increment(totalEarned));
-            myRef.child("Question").setValue(ServerValue.increment(currentQuestionIndex));
+            tvCoinsEarned.setText("You got total of: "+totalCoins+" coins \n& " +totalPoints+" pts earned!");
 
             if(isStage1Four & subject.equals(getString(R.string.four_five_letters)+
                     " "+getString(R.string.stage_01))){
@@ -495,11 +620,15 @@ public class PlayActivity extends AppCompatActivity {
                 myRefStage.child("Stage1_Eight").setValue(true);
                 myRef.child("Stage").setValue(2);
             }
+
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean(subject, true);
+            editor.apply();
         }
 
         btnNextStage.setOnClickListener(view1 -> {
             SoundPoolManager.playSound(1);
-            if (btnNextStage.getText().equals(getString(R.string.next))) {
+            if (!btnNextStage.getText().equals(getString(R.string.finish))) {
                 linearLayout.removeAllViews();
                 NextStage();
                 layoutNextStage.setVisibility(View.GONE);
@@ -508,10 +637,24 @@ public class PlayActivity extends AppCompatActivity {
                 btnReset.setEnabled(true);
                 btnShuffle.setEnabled(true);
                 btnBack.setEnabled(true);
+                mTimeLeftInMillis += ADD_TIME_IN_MILLIS;
+                if (textAnswer.length() >= 6){
+                    mTimeLeftInMillis += ADD_TIME_IN_MILLIS;
+                }
+                mProgressBar.setMax((int)(mTimeLeftInMillis / 1000));
+                updateCountDownText();
+                startTimer();
             } else {
                 finish();
             }
         });
+    }
+
+    private void EarnPointsCoin(){
+        myRef.child("TotalCoins").setValue(ServerValue.increment(stageCoin));
+        myRef.child("Question").setValue(ServerValue.increment(1));
+        myRef.child("Points").setValue(ServerValue.increment(points));
+        myRef.child("Coin").setValue(ServerValue.increment(stageCoin));
     }
 
     private void EarnBadges(){
@@ -567,8 +710,81 @@ public class PlayActivity extends AppCompatActivity {
         synClass.execute(urlThesauras);
     }
 
+    private void Retry() {
+        linearLayout.setVisibility(View.VISIBLE);
+        btnCoin.setEnabled(true);
+        btnReset.setEnabled(true);
+        btnShuffle.setEnabled(true);
+        btnBack.setEnabled(true);
+        layoutFailed.setVisibility(View.GONE);
+        mTimeLeftInMillis += ADD_TIME_IN_MILLIS;
+        if (textAnswer.length() >= 6){
+            mTimeLeftInMillis += ADD_TIME_IN_MILLIS;
+        }
+        mProgressBar.setMax((int)(mTimeLeftInMillis / 1000));
+        updateCountDownText();
+        startTimer();
+    }
+
+    private void startTimer() {
+        mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mTimeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+            @Override
+            public void onFinish() {
+                Vibrator vibe = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+                vibe.vibrate(300);
+                SoundPoolManager.playSound(3);
+                myRef.child("Coin").setValue(ServerValue.increment(-2));
+                linearLayout.setVisibility(View.GONE);
+                btnCoin.setEnabled(false);
+                btnReset.setEnabled(false);
+                btnShuffle.setEnabled(false);
+                btnBack.setEnabled(false);
+                layoutFailed.setVisibility(View.VISIBLE);
+            }
+        }.start();
+        mTimerRunning = true;
+    }
+    private void stopTimer(){
+        mCountDownTimer.cancel();
+        mTimerRunning = false;
+        timeLeft = mTimeLeftInMillis;
+    }
+    private void updateCountDownText() {
+        int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
+        int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
+        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+        textViewShowTime.setText(timeLeftFormatted);
+        mProgressBar.setProgress((int)(mTimeLeftInMillis / 1000));
+    }
+
     @Override
     public void onBackPressed() {
-
+        AlertDialog.Builder alertExit = new AlertDialog.Builder(this);
+        alertExit.setTitle("Exit Current Riddle")
+                .setMessage("You certain want to break? \n" +
+                        "\nNote: You can still answer the remaining riddle!")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setCancelable(false)
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    //Back to Menu Activity
+                    overridePendingTransition(0, 0);
+                    stopTimer();
+                    super.onBackPressed();
+                    finish();
+                })
+                .setNegativeButton("No", (dialog, which) -> {
+                });
+        AlertDialog dialog = alertExit.create();
+        dialog.show();
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
     }
 }

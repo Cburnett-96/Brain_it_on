@@ -19,6 +19,14 @@
             android:layout_margin="10dp"
             android:orientation="horizontal">
 
+            <Button
+                android:id="@+id/backButtonRank"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="start"
+                android:background="@drawable/ic_back"
+                app:backgroundTint="@color/goldenrod" />
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

@@ -14,74 +14,139 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.core.widget.NestedScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_gravity="center">
-
-                <TextView
-                    android:id="@+id/loginMessage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:textAlignment="center"
-                    android:textColor="@color/white_smoke"
-                    android:fontFamily="@font/proxima_nova"
-                    android:textStyle="bold" />
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="300dp"
-                        android:layout_gravity="center"
+                    <TextView
+                        android:id="@+id/loginMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:src="@raw/logo" />
-
-                    <Button
-                        android:id="@+id/btn_play"
-                        android:layout_width="180dp"
-                        android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:background="@raw/start_play"
-                        app:backgroundTint="@null" />
+                        android:fontFamily="@font/proxima_nova"
+                        android:textAlignment="center"
+                        android:textColor="@color/white_smoke"
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:orientation="horizontal">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                        <Button
-                            android:id="@+id/btn_badges"
-                            android:layout_width="180dp"
-                            android:layout_height="70dp"
-                            android:layout_margin="9dp"
-                            android:layout_weight="1"
-                            android:background="@raw/badge_collection"
-                            app:backgroundTint="@null" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/btn_wordOfTheDay"
-                            android:layout_width="180dp"
-                            android:layout_height="70dp"
-                            android:layout_margin="9dp"
-                            android:layout_weight="1"
-                            android:background="@raw/wotd"
-                            app:backgroundTint="@null" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:id="@+id/btnProfile"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginBottom="50dp"
+                                    android:background="@drawable/profile"
+                                    app:backgroundTint="@null" />
+
+                                <Button
+                                    android:id="@+id/btnLeaderboard"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/rank"
+                                    app:backgroundTint="@null" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="250dp"
+                                android:layout_height="250dp"
+                                android:src="@raw/logo" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:id="@+id/btnSetting"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginBottom="50dp"
+                                    android:background="@drawable/settings"
+                                    app:backgroundTint="@null" />
+
+                                <Button
+                                    android:id="@+id/btnShop"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/shop"
+                                    app:backgroundTint="@null" />
+
+                            </LinearLayout>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_play"
+                android:layout_width="180dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:background="@raw/start_play"
+                app:backgroundTint="@null" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_badges"
+                    android:layout_width="180dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="9dp"
+                    android:layout_weight="1"
+                    android:background="@raw/badge_collection"
+                    app:backgroundTint="@null" />
+
+                <Button
+                    android:id="@+id/btn_wordOfTheDay"
+                    android:layout_width="180dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="9dp"
+                    android:layout_weight="1"
+                    android:background="@raw/wotd"
+                    app:backgroundTint="@null" />
             </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
     </LinearLayout>
 
     <include layout="@layout/layout_profile" />
@@ -92,5 +157,5 @@
 
     <include layout="@layout/layout_setting" />
 
-    <include layout="@layout/navigation_bottom" />
+    <!--<include layout="@layout/navigation_bottom" />-->
 </RelativeLayout>

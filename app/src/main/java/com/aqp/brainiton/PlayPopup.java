@@ -19,6 +19,7 @@ import com.aqp.brainiton.other.SoundPoolManager;
 public class PlayPopup {
     SharedPreferences prefs;
     boolean isStage1Four, isStage1Six, isStage1Eight;
+    boolean isStage1Three, isStage2Three, isStage1six, isStage2six;
 
     LinearLayout layoutMode, layoutChoiceLetter, layout4_5ChoiceStage, layout6_7ChoiceStage, layout8_10ChoiceStage;
     Button btnFourFiveLetters, btnSixSevenLetters, btnEightTenLetters, btnStage1_4_5, btnStage2_4_5, buttonClose,
@@ -48,6 +49,15 @@ public class PlayPopup {
         isStage1Six = prefs.getBoolean("isStage1Six", false);
         isStage1Eight = prefs.getBoolean("isStage1Eight", false);
 
+        isStage1Three = prefs.getBoolean(view.getContext().getString(R.string.four_five_letters) +
+                " " + view.getContext().getString(R.string.stage_01), false);
+        isStage2Three = prefs.getBoolean(view.getContext().getString(R.string.four_five_letters) +
+                " " + view.getContext().getString(R.string.stage_02), false);
+        isStage1six = prefs.getBoolean(view.getContext().getString(R.string.six_seven_letters) +
+                " " + view.getContext().getString(R.string.stage_01), false);
+        isStage2six = prefs.getBoolean(view.getContext().getString(R.string.six_seven_letters) +
+                " " + view.getContext().getString(R.string.stage_02), false);
+
         layoutMode = popupView.findViewById(R.id.layoutChoiceMode);
         layoutChoiceLetter = popupView.findViewById(R.id.layoutChoiceLetter);
         layout4_5ChoiceStage = popupView.findViewById(R.id.layout4_5ChoiceStage);
@@ -74,10 +84,10 @@ public class PlayPopup {
 
         btnLearning.setOnClickListener(v -> {
             SoundPoolManager.playSound(0);
-            Toast.makeText(view.getContext(), "Under-development!", Toast.LENGTH_SHORT).show();
-            /*popupWindow.dismiss();
+            //Toast.makeText(view.getContext(), "Under-development!", Toast.LENGTH_SHORT).show();
+            popupWindow.dismiss();
             Intent intent = new Intent(v.getContext(), ImageProcessActivity.class);
-            v.getContext().startActivity(intent);*/
+            v.getContext().startActivity(intent);
         });
 
         btnFourFiveLetters.setOnClickListener(v -> {
@@ -108,41 +118,65 @@ public class PlayPopup {
         //THREE to FIVE LETTERS
         btnStage1_4_5.setOnClickListener(v -> {
             SoundPoolManager.playSound(1);
-            popupWindow.dismiss();
-            Intent intent = new Intent(v.getContext(), PlayActivity.class);
-            intent.putExtra(Constants.SUBJECT, v.getContext().getString(R.string.four_five_letters) +
-                    " " + v.getContext().getString(R.string.stage_01));
-            intent.putExtra("Riddle Size", 14);
-            v.getContext().startActivity(intent);
+            if (isStage1Three){
+                Toast.makeText(view.getContext(), "You Completed this Stage!", Toast.LENGTH_SHORT).show();
+            } else {
+                popupWindow.dismiss();
+                Intent intent = new Intent(v.getContext(), PlayActivity.class);
+                intent.putExtra(Constants.SUBJECT, v.getContext().getString(R.string.four_five_letters) +
+                        " " + v.getContext().getString(R.string.stage_01));
+                intent.putExtra("Riddle Size", 14);
+                v.getContext().startActivity(intent);
+            }
         });
         btnStage2_4_5.setOnClickListener(v -> {
             SoundPoolManager.playSound(1);
-            popupWindow.dismiss();
-            Intent intent = new Intent(v.getContext(), PlayActivity.class);
-            intent.putExtra(Constants.SUBJECT, v.getContext().getString(R.string.four_five_letters) +
-                    " " + v.getContext().getString(R.string.stage_02));
-            intent.putExtra("Riddle Size", 12);
-            v.getContext().startActivity(intent);
+            if (!isStage1Three) {
+                Toast.makeText(view.getContext(), "You Need to Complete Stage 1!", Toast.LENGTH_SHORT).show();
+            } else {
+                if (isStage2Three){
+                    Toast.makeText(view.getContext(), "You Completed this Stage!", Toast.LENGTH_SHORT).show();
+                } else {
+                    popupWindow.dismiss();
+                    Intent intent = new Intent(v.getContext(), PlayActivity.class);
+                    intent.putExtra(Constants.SUBJECT, v.getContext().getString(R.string.four_five_letters) +
+                            " " + v.getContext().getString(R.string.stage_02));
+                    intent.putExtra("Riddle Size", 12);
+                    v.getContext().startActivity(intent);
+                }
+            }
         });
 
         //SIX to SEVEN LETTERS
         btnStage1_6_7.setOnClickListener(v -> {
             SoundPoolManager.playSound(1);
-            popupWindow.dismiss();
-            Intent intent = new Intent(v.getContext(), PlayActivity.class);
-            intent.putExtra(Constants.SUBJECT, v.getContext().getString(R.string.six_seven_letters) +
-                    " " + v.getContext().getString(R.string.stage_01));
-            intent.putExtra("Riddle Size", 14);
-            v.getContext().startActivity(intent);
+            if (isStage1six){
+                Toast.makeText(view.getContext(), "You Completed this Stage!", Toast.LENGTH_SHORT).show();
+            } else {
+                popupWindow.dismiss();
+                Intent intent = new Intent(v.getContext(), PlayActivity.class);
+                intent.putExtra(Constants.SUBJECT, v.getContext().getString(R.string.six_seven_letters) +
+                        " " + v.getContext().getString(R.string.stage_01));
+                intent.putExtra("Riddle Size", 14);
+                v.getContext().startActivity(intent);
+            }
         });
         btnStage2_6_7.setOnClickListener(v -> {
             SoundPoolManager.playSound(1);
-            popupWindow.dismiss();
-            Intent intent = new Intent(v.getContext(), PlayActivity.class);
-            intent.putExtra(Constants.SUBJECT, v.getContext().getString(R.string.six_seven_letters) +
-                    " " + v.getContext().getString(R.string.stage_02));
-            intent.putExtra("Riddle Size", 12);
-            v.getContext().startActivity(intent);
+            if (!isStage1six) {
+                Toast.makeText(view.getContext(), "You Need to Complete Stage 1!", Toast.LENGTH_SHORT).show();
+            } else {
+                if (isStage2six){
+                    Toast.makeText(view.getContext(), "You Completed this Stage!", Toast.LENGTH_SHORT).show();
+                } else {
+                    popupWindow.dismiss();
+                    Intent intent = new Intent(v.getContext(), PlayActivity.class);
+                    intent.putExtra(Constants.SUBJECT, v.getContext().getString(R.string.six_seven_letters) +
+                            " " + v.getContext().getString(R.string.stage_02));
+                    intent.putExtra("Riddle Size", 12);
+                    v.getContext().startActivity(intent);
+                }
+            }
         });
 
         //EIGHT to TEN LETTERS

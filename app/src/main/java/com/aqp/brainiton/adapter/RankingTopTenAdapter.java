@@ -47,7 +47,7 @@ public class RankingTopTenAdapter extends RecyclerView.Adapter<RankingTopTenAdap
 
         UserRankingTen user = userList.get(position);
         holder.textViewName.setText(user.Username);
-        holder.textViewPoints.setText(String.valueOf(user.getRiddle()));
+        holder.textViewPoints.setText(String.valueOf(user.getPoints()));
         avatarName = user.Avatar;
         GetAvatarInfo(holder);
 

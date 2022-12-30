@@ -63,6 +63,7 @@ public class ImageProcessActivity extends AppCompatActivity {
         } else {
             //Request camera permission if we don't have it.
             requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
+            finish();
         }
 
         picture.setOnClickListener(view -> {

@@ -16,7 +16,7 @@ public class SixLetterLibrary {
         questions.put("I’m soft and hairy, I always stay on the floor.","Carpet");
         questions.put("I blow hot air; you dry your hair with me.","Blower");
         questions.put("I walk and swim, I always carry my house.","Turtle");
-        questions.put("I can be red or green, I’m dried to make raisins or squeezed to make wine.","Grapes");
+        questions.put("I am a root vegetable, I am orange and long. Rabbit loves me.","Carrot");
         questions.put("I have two big ears; my favorite food is carrots.","Rabbit");
         questions.put("I am vegetable, when you eat me, your sight will be clear.","Squash");
         questions.put("I’m a yellow fruit and I grow on trees, monkeys love me.","Banana");

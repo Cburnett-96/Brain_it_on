@@ -15,24 +15,9 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/logo" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/brain_it_on"
-            android:textColor="@color/white_smoke"
-            android:textSize="28sp"
-            android:fontFamily="@font/fredoka_one" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/guess_the_logical_riddle"
-            android:fontFamily="@font/proxima_nova"
-            android:textColor="@color/white_smoke" />
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@raw/logo" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -70,7 +55,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autofillHints="username"
-                        android:inputType="textPersonName"
+                        android:inputType="textCapWords"
                         android:textColor="@color/white_smoke"
                         android:fontFamily="@font/proxima_nova"
                         app:backgroundTint="@color/dark_gray"

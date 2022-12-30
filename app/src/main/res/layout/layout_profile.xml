@@ -20,6 +20,14 @@
             android:layout_margin="10dp"
             android:orientation="horizontal">
 
+            <Button
+                android:id="@+id/backButtonProfile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="start"
+                android:background="@drawable/ic_back"
+                app:backgroundTint="@color/goldenrod" />
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -153,6 +161,39 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="20dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingStart="20dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/current_points"
+                                    android:textColor="@color/white_smoke"
+                                    android:textSize="18sp"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvPts"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:hint="@string/sharp"
+                                    android:paddingStart="0dp"
+                                    android:paddingEnd="10dp"
+                                    android:textAlignment="viewEnd"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/goldenrod"
+                                    android:textColorHint="@android:color/darker_gray"
+                                    android:textSize="18sp"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView

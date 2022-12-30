@@ -29,8 +29,9 @@
     <string name="settings">Settings</string>
     <string name="user_avatar">User Avatar</string>
     <string name="apply">Owned</string>
+    <string name="selected">Selected</string>
     <string name="avatar_shop">Avatar Shop</string>
-    <string name="most_riddle_answered">Top 10 User for Most Riddle Answered</string>
+    <string name="most_riddle_answered">Top 10 User for Most Points Earned!</string>
     <string name="my_coins">My Coins:</string>
     <string name="badge_name">Badge Name</string>
     <string name="description">Description:</string>
@@ -49,4 +50,8 @@
     <string name="four_five_letters">3 – 5 Letters</string>
     <string name="six_seven_letters">6 – 9 Letters</string>
     <string name="eight_ten_letters">8 – 10 Letters</string>
+    <string name="current_points">Current Points:</string>
+    <string name="retry">Retry</string>
+    <string name="failed">Failed!</string>
+    <string name="clue">Clue</string>
 </resources>

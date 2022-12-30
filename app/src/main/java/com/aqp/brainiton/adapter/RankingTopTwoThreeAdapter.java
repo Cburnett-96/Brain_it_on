@@ -43,7 +43,7 @@ public class RankingTopTwoThreeAdapter extends RecyclerView.Adapter<RankingTopTw
     public void onBindViewHolder(@NonNull RankingTopTwoThreeAdapter.RankingViewHolder holder, int position) {
         UserRankingTwoThree user = userList.get(position);
         holder.textViewName.setText(user.Username);
-        holder.textView_XP.setText(String.valueOf(user.getRiddle()));
+        holder.textView_XP.setText(String.valueOf(user.getPoints()));
         avatarName = user.Avatar;
         GetAvatarInfo(holder);
 
