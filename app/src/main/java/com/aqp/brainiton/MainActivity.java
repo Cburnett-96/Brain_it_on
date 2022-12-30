@@ -232,6 +232,16 @@ public class MainActivity extends AppCompatActivity {
                 letterStage = getLetterStage;
                 points = Integer.parseInt(getPoints);
 
+                UserRankingTen data = new UserRankingTen(username, avatar, points);
+                FirebaseDatabase.getInstance().getReference("UserRanking")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(data);
+                UserRankingOne data1 = new UserRankingOne(username, avatar, points);
+                FirebaseDatabase.getInstance().getReference("UserRanking")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(data1);
+                UserRankingTwoThree data2 = new UserRankingTwoThree(username, avatar, points);
+                FirebaseDatabase.getInstance().getReference("UserRanking")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(data2);
+
                 loginMessage.setText("Welcome! "+getUsername);
                 tvCoins.setText(String.valueOf(coin));
 
@@ -246,9 +256,9 @@ public class MainActivity extends AppCompatActivity {
                 editor.apply();
 
                 uidRanking = FirebaseDatabase.getInstance().getReference().child("UserRanking").child(currentUser.getUid());
-                uidRanking.child("Username").setValue(getUsername);
-                uidRanking.child("Points").setValue(Integer.parseInt(getPoints));
-                uidRanking.child("Avatar").setValue(getAvatar);
+                uidRanking.child("Username").setValue(username);
+                uidRanking.child("Points").setValue(points);
+                uidRanking.child("Avatar").setValue(avatar);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -850,6 +860,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         query.addListenerForSingleValueEvent(valueEventListener);
+        query.keepSynced(true);
     }
 
     //Double back to exit
